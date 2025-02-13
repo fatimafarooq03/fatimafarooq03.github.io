@@ -1,0 +1,31 @@
+/* General Page Styling */
+body {
+    font-family: 'Brush Script MT', cursive; /* Handwritten-style font */
+    text-align: center;
+    background-color: #F8E1E1; /* Light pink background */
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styling */
+h1 {
+    font-size: 24px;
+    font-style: italic;
+    margin-top: 20px;
+}
+
+/* Video Container */
+.video-container {
+    background-color: #F4BFBF; /* Soft pink background */
+    padding: 20px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+/* Video Styling */
+video {
+    border: 3px solid #aaa; /* Gray border around video */
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}

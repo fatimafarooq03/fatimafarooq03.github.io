@@ -1,51 +1,153 @@
-<html>
-<!-- root of DOM -->
-  <head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Sunrise Formula: Your Path to a Perfect Morning</title>
-  </head>
+    
+    <!-- Linking external CSS file -->
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
 
-  <video width="640" height="360" controls>
-    <source src="morning_routine.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-  
+</head>
+<body>
+            
+    <!-- Page title -->
+    <h1>The Sunrise Formula: Your Path to a Perfect Morning</h1>
+    <div class="container">
+        <h2 class="video-title">Asini's Unfiltered Morning Routine</h2>
+    
+        <img src="nyuad.png" alt="NYUAD Logo" class="logo">
 
-  <body>
-    <!-- All the content of the webpage -->
-    <h1>he Sunrise Formula: Your Path to a Perfect Morning</h1>
-    <h6>I am a cat's subtitle</h6>
-    <p>I am a paragraph of <b>text</b>.</p>
-    <p>I am another <i>paragraph</i> of text.</p>
+        <!-- Video wrapper -->
+        <div class="video-container">
+            <video width="640" height="360" controls>
+                <source src="morning_routine.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="curved-title">
+                <svg viewBox="0 0 300 120">
+                    <defs>
+                        <!-- Flatter Curve (Shallower Arc) -->
+                        <path id="curvePath" d="M 50,90 Q 150,60 250,90" fill="transparent"/>
+                    </defs>
+                    <text fill="#4a2c2a" font-size="40" font-family="American Typewriter, serif">
+                        <textPath xlink:href="#curvePath" startOffset="50%" text-anchor="middle">Starring</textPath>
+                    </text>
+                </svg>
+            </div>
 
-    <b>How to take care of cats?</b>
-
-    <ul>
-      <li>Food & Water</li>
-      <li>Litter Box Maintenance</li>
-      <li>Health & Grooming</li>
-    </ul>
-
-    <!-- generic -->
-    <div id="my-unique-id">
-      a genertic division/block in the <span>page</span>
+        <!-- Image Gallery Section (Only Two Images with Names & Links) -->
+<div class="image-gallery">
+    <div class="gallery-item">
+        <img src="mariam.png" alt="Mariam Hafez" class="gallery-img">
+        <a href="https://www.linkedin.com/in/mariam-hafez-b10ab72ab/" target="_blank" class="name-link">Mariam Hafez</a>
     </div>
+    
+    <div class="gallery-item">
+        <img src="asini.png" alt="Asini Subanya" class="gallery-img">
+        <a href="https://www.linkedin.com/in/asini-subanya/" target="_blank" class="name-link">Asini Subanya</a>
+    </div>
+</div>
 
-    <!-- links -->
-    <a href="page2.html">I am a link to another page</a>
-    <a href="#myid">internal link</a>
+<div class="curved-title">
+    <svg viewBox="0 0 300 120">
+        <defs>
+            <!-- Flatter Curve (Shallower Arc) -->
+            <path id="curvePath" d="M 50,90 Q 150,60 250,90" fill="transparent"/>
+        </defs>
+        <text fill="#4a2c2a" font-size="40" font-family="American Typewriter, serif">
+            <textPath xlink:href="#curvePath" startOffset="50%" text-anchor="middle">Shot By</textPath>
+        </text>
+    </svg>
+</div>
 
-    <br/>
-    <!-- images -->
-    <img src="kitty.jpg" alt-text="what is the image of" />
-    <img src="cat-cat-dance.gif" alt-text="what is the image of" />
-    <img src="https://media.istockphoto.com/photos/european-short-haired-cat-picture-id1072769156?k=20&m=1072769156&s=612x612&w=0&h=k6eFXtE7bpEmR2ns5p3qe_KYh098CVLMz4iKm5OuO6Y=" />
-    <!-- image as link -->
-    <a href="http://duckduckgo.com"><img src="kitty.jpg" alt-text="what is the image of" /></a>
- 
-    <!--internal link-->
-    <section id="myid">
-    <img src="cat-cat-dance.gif" alt-text="what is the image of" />
-    </section>
+<!-- Centered Third Image -->
+<div class="image-gallery single">
+    <div class="gallery-item">
+        <img src="fatima.png" alt="Fatima Farooq" class="gallery-img">
+        <a href="https://www.linkedin.com/in/fatima-farooq-097840236/" target="_blank" class="name-link">Fatima Farooq</a>
+    </div>
+</div>
 
-  </body>
+<!-- Interactive Input Box -->
+<div class="interactive-box">
+    <h2 class="interactive-title">So what is Asini's morning routine like?</h2>
+    
+    <p class="interactive-description">
+        At the start of the semester, we all strive for perfect routines—waking up early, having breakfast, and embracing the day with optimism. 
+        But as the semester progresses, with increasing work and stress, some of those habits naturally fade. 
+        Asini, Mariam, and I wanted to capture what a typical morning for an NYUAD student looks like by following Asini’s morning routine on a random Thursday, 
+        filmed in a Wes Anderson style. Her routine is split into 7 parts—enter a number from 1 to 7 to follow along and see what she’s doing and thinking at each step.
+    </p>
+
+    <label for="numberInput">Enter a number:</label>
+    <input type="number" id="numberInput" placeholder="Type a number..." min="1" max="7">
+    <button onclick="showText()">Submit</button>
+    <p id="outputText"></p>
+</div>
+
+<!-- Second Interactive Box (Speech Bubble Style) -->
+<div class="enhance-box">
+    <div class="speech-bubble">
+        <p>Do you want to enhance Asini's morning routine?</p>
+    </div>
+    
+    <div class="button-container">
+        <button id="yesButton" onclick="changeToSmiley()">YES</button>
+        <button id="noButton" onclick="changeToSadFace()">NO</button>
+    </div>
+</div>
+
+
+<div class="morning-routine">
+    <h2 class="routine-title">How to Create the Perfect Morning Routine?</h2>
+
+    <div class="routine-grid">
+        <!-- Step 1 -->
+        <div class="routine-step">
+            <video class="routine-video" autoplay loop muted>
+                <source src="sleep.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <h3>Getting Full 8 Hours of Sleep</h3>
+            <p>Getting 8 hours of sleep ensures you wake up refreshed, focused, and energized. It improves mood, boosts memory, and regulates metabolism, making mornings smoother and more productive. Without enough rest, waking up feels sluggish and stressful. A good night’s sleep sets the tone for a great morning!</p>
+            <a href="https://odphp.health.gov/myhealthfinder/healthy-living/mental-health-and-relationships/get-enough-sleep" target="_blank" rel="noopener noreferrer" class="routine-link">How to get adequate sleep</a>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="routine-step">
+            <video class="routine-video" autoplay loop muted>
+                <source src="water.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <h3>Hydrate Yourself</h3>
+            <p>Staying hydrated ensures you wake up feeling refreshed and alert. Water helps kickstart your metabolism, improves focus, and prevents morning grogginess. It also supports digestion and keeps your energy levels steady throughout the day. Without enough hydration, you may feel sluggish, dizzy, or experience headaches in the morning. Drinking water first thing sets the tone for a healthier, more energized day!</p>
+            <a href="https://www.scripps.org/news_items/6630-6-simple-ways-to-stay-hydrated" target="_blank" rel="noopener noreferrer" class="routine-link">How to stay hydrated</a>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="routine-step full-width">
+            <video class="routine-video" autoplay loop muted>
+                <source src="exercise.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <h3>Exercise</h3>
+            <p>Morning exercise boosts energy, improves focus, and enhances mood by releasing endorphins. It jumpstarts your metabolism, increases blood flow, and reduces morning sluggishness. A quick workout sets a positive tone for the rest of the day!</p>
+            <a href="https://app.gainful.com/blog/11-good-morning-exercises/" target="_blank" rel="noopener noreferrer" class="routine-link">Morning Exercise</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+            
+
+        </div>
+    </div>
+    
+    
+
+</body>
 </html>

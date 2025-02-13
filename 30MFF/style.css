@@ -1,0 +1,312 @@
+/* ----- General Page Styling ----- */
+
+/* Set background color and text properties for the entire page */
+body {
+    font-family: "American Typewriter", serif;
+    text-align: center;
+    background-color: #F8E1E1; /* Light pink background */
+    margin: 0;
+    padding: 0;
+}
+
+/* ----- Header Styling ----- */
+h1 {
+    font-size: 40px;
+    margin-top: 20px;
+}
+
+/* ----- Video Section Styling ----- */
+.container {
+    position: relative;
+    width: 800px;
+    background-color: pink;
+    padding: 20px;
+    text-align: center;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.video-title {
+    font-size: 14px;
+    color: #000;
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 8px 15px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 60px;
+    height: auto;
+    z-index: 10;
+}
+
+/* Video Styling */
+video {
+    border: 3px solid #aaa;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* ----- Curved Title ----- */
+.curved-title {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+svg {
+    width: 150px;
+    height: 150px;
+}
+
+/* ----- Image Gallery ----- */
+.image-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 25px;
+}
+
+.gallery-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.gallery-img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Name Links */
+.name-link {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #4a2c2a;
+    transition: color 0.3s ease-in-out;
+}
+
+.name-link:hover {
+    color: #b86b77;
+}
+
+/* Center the third image */
+.image-gallery.single {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+/* ----- Interactive Box ----- */
+.interactive-box {
+    text-align: center;
+    margin-top: 40px;
+    padding: 25px;
+    background: #f8c8dc;
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.15);
+    width: 500px;
+    margin: 40px auto;
+}
+
+.interactive-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #4a2c2a;
+    margin-bottom: 10px;
+}
+
+.interactive-description {
+    font-size: 16px;
+    color: #4a2c2a;
+    line-height: 1.5;
+    text-align: justify;
+    margin-bottom: 20px;
+}
+
+/* ----- Buttons & Inputs ----- */
+label {
+    font-size: 18px;
+    color: #4a2c2a;
+}
+
+input {
+    width: 100px;
+    padding: 8px;
+    margin: 10px;
+    border: 2px solid #b86b77;
+    border-radius: 5px;
+    text-align: center;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100px;
+}
+
+button:hover {
+    background-color: #b86b77;
+}
+
+#outputText {
+    font-size: 18px;
+    color: #4a2c2a;
+    margin-top: 15px;
+}
+
+/* ----- Enhance Box ----- */
+.enhance-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    padding: 25px;
+    background: #f8c8dc;
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.15);
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+/* Speech Bubble */
+.speech-bubble {
+    background: white;
+    color: #4a2c2a;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 15px 20px;
+    border-radius: 20px;
+    max-width: 90%;
+    text-align: center;
+    position: relative;
+}
+
+/* Speech Bubble Tail */
+.speech-bubble::after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 15px;
+    border-style: solid;
+    border-color: white transparent transparent transparent;
+}
+
+/* Button Container */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+/* Morning Routine Container */
+.morning-routine {
+    text-align: center;
+    padding: 30px;
+    background: #f8c8dc;
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.15);
+    width: 80%;
+    margin: 40px auto;
+   
+}
+
+/* Routine Grid */
+.routine-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Bottom Box Styling (Make It Fit Well) */
+.full-width {
+    grid-column: span 2;
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 50px auto; /* Adds even spacing from the top and bottom */
+    padding: 40px 30px; /* Adjusted padding for better fit */
+    width: 75%; /* Slightly smaller width for alignment */
+    max-width: 550px; /* Prevents it from being too wide */
+    background: white;
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Routine Step Styling */
+.routine-step {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: auto;
+    width: 80%;
+    max-width: 500px; /* Ensures it doesn't stretch too much */
+}
+
+/* Routine Video */
+.routine-video {
+    width: 100%;
+    max-width: 300px;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+
+/* Ensure Button Stays Properly Aligned */
+.routine-link {
+    display: block;
+    background: #f5a9b8;
+    color: #4a2c2a;
+    padding: 12px 18px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+    margin-top: auto;
+    align-self: center; /* Center the button properly */
+}
+
+/* Responsive Fix */
+@media (max-width: 768px) {
+    .routine-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+    }
+    .full-width {
+        grid-column: span 1;
+        grid-row: auto;
+        width: 90%; /* More width for small screens */
+        margin-top: 30px;
+    }
+}
