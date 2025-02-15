@@ -52,3 +52,43 @@ function changeToSadFace() {
         noButton.innerText = "NO";
     }, 3000);
 }
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth"
+        });
+    });
+});
+
+window.onscroll = function () {
+    let button = document.getElementById("backToTop");
+    if (document.documentElement.scrollTop > 300) {
+        button.style.display = "block";
+    } else {
+        button.style.display = "none";
+    }
+};
+
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+window.onscroll = function () {
+    let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    let scrolled = (winScroll / height) * 100;
+    document.getElementById("progressBar").style.width = scrolled + "%";
+};
+
+function showFeedback(emoji) {
+    let message = document.getElementById("feedback-message");
+    if (emoji === "😊") {
+        message.innerText = "Glad you love it!";
+    } else if (emoji === "😐") {
+        message.innerText = "Thanks for your feedback!";
+    } else {
+        message.innerText = "We'll work on making it better!";
+    }
+}
