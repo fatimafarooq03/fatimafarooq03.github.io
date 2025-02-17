@@ -63,6 +63,13 @@ I also faced difficulties in adjusting the sizes of different containers through
 
 Despite these challenges, the learning process was extremely rewarding. By the end of the project, I felt much more comfortable with HTML, CSS, and JavaScript, and I gained a better understanding of how to structure, style, and enhance web pages with interactivity.
 
+### Were My Expectations & Goals Met?  
+
+Going into this project, my main goal was to **create an engaging, visually appealing, and interactive way to showcase a morning routine**. I wanted the website to feel **aesthetic yet functional**, ensuring that users didn’t just passively view the content but actively participated in the experience.  
+
+Looking at the final version, I believe my **expectations were met, and in some areas, even exceeded**. The project successfully captured the **essence of a morning routine** through **storytelling and structured cinematography** while introducing **multiple interactive elements** that made the experience both **engaging and immersive**. Despite initial struggles with **color selection and layout consistency**, the final design resulted in a **visually cohesive and aesthetically pleasing** website. The interactive features, such as **number inputs, feedback buttons, and navigation choices**, played a crucial role in enhancing user participation.  
+
+While there are areas I’d like to improve—such as **making the interactivity even more dynamic and adding more personalized elements**—the final result **closely aligns with my original vision**. The process of **learning, iterating, and problem-solving** made this an incredibly valuable experience, and I’m proud of how the project turned out.
 
 ### **Potential Improvements**  
 While the project successfully achieved its core objectives, there are several ways it could be enhanced further:  
