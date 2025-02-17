@@ -55,9 +55,14 @@ This project successfully **transformed a simple morning routine into an engagin
 The **aesthetic consistency**, from the **soft pastel color scheme** to the **precise, structured visual elements**, stayed true to the initial **Wes Anderson-inspired vision**. The **smooth animations, video integration, and interactive decision-making elements** made the project **engaging and immersive**.  
 
 ### **Challenges & Learnings**  
-One of the biggest challenges was **ensuring responsiveness** across different screen sizes. Certain elements, like the **curved text and video grid**, required careful adjustments to avoid misalignment. Another challenge was **balancing interactivity with simplicity**—ensuring the website felt engaging without overwhelming the user.  
+Since this was my first time using HTML and CSS, one of the biggest challenges was deciding on a cohesive color scheme and making sure all elements matched aesthetically. At first, I struggled to find the right balance between a visually engaging design and maintaining readability. Experimenting with different background colors, text styles, and spacing helped me refine the look, but it was a time-consuming process.
 
-Additionally, creating **an effective yet subtle visual hierarchy** was crucial. The **interactive elements needed to be noticeable** but **not overpower the core content**. This required multiple iterations of **layout adjustments, hover effects, and spacing refinements**.  
+Another challenge was figuring out how to make the project interactive. Initially, this was meant to be a simple storytelling website, but I wanted it to feel more immersive. I spent time brainstorming ways to engage the user, which led to features like the number-based morning routine navigation, YES/NO buttons, and emoji feedback system. Thinking through how users would interact with the content helped shape the final structure of the project.
+
+I also faced difficulties in adjusting the sizes of different containers throughout the website. Ensuring that everything looked consistent and well-aligned required a lot of manual and iterative modifications—I had to keep tweaking widths, margins, and padding until everything felt balanced. Small changes often had unintended effects on spacing, which meant constantly revisiting and refining the layout.
+
+Despite these challenges, the learning process was extremely rewarding. By the end of the project, I felt much more comfortable with HTML, CSS, and JavaScript, and I gained a better understanding of how to structure, style, and enhance web pages with interactivity.
+
 
 ### **Potential Improvements**  
 While the project successfully achieved its core objectives, there are several ways it could be enhanced further:  
