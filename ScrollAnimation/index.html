@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Mermaid's Tale</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Title -->
+    <h1 id="title">A Mermaid's Tale</h1>
+
+    <div id="container">
+        <div id="speech-bubble">Hello, I'm the mermaid!</div>
+        <img id="mermaid" src="mermaid.png" alt="Mermaid">
+    </div>
+
+    <!-- Floating bubble animations -->
+    <div class="bubbles">
+        <div class="bubble" style="--size:40px; --left:10%; --duration:6s;"></div>
+        <div class="bubble" style="--size:30px; --left:20%; --duration:8s;"></div>
+        <div class="bubble" style="--size:50px; --left:35%; --duration:10s;"></div>
+        <div class="bubble" style="--size:25px; --left:50%; --duration:7s;"></div>
+        <div class="bubble" style="--size:35px; --left:65%; --duration:9s;"></div>
+        <div class="bubble" style="--size:45px; --left:80%; --duration:11s;"></div>
+        <div class="bubble" style="--size:20px; --left:90%; --duration:5s;"></div>
+    </div>
+
+    <!-- Hidden treasure chest that appears at the end -->
+    <div id="treasure-container">
+        <img id="treasure" src="treasure.png" alt="Treasure Chest">
+        <p id="treasure-text">You found the hidden treasure!</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
