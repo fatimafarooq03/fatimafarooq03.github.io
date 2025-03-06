@@ -1,0 +1,374 @@
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Allow scrolling between frames */
+html, body {
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    font-family: "Comic Sans MS", "Bangers", cursive;
+}
+/* 
+Navigation Bar 
+*/
+#nav{
+  /* Fix navigation bar at the top middle of the web page */
+    position: fixed;
+    /* calc() CSS function calculates numbers of different units */
+    left: calc(50% - 50px);
+    top: 20px;
+    /* Display nav bar on top of everything else */
+    z-index: 1;
+}
+
+.nav-btn{
+  width: 20px;
+    height: 20px;
+    /* Make square div into a circle */
+    border-radius: 50%;
+    background-color: white;
+    display: inline-block;
+    cursor: pointer;
+    /* transition changes in background-color */
+    transition: background-color 0.5s;
+}
+
+/* When a nav-btn is hovered on, set background-color to black */
+.nav-btn:hover{
+  background-color: #ff3131;
+}
+
+/* CSS */
+button {
+  align-self: center;
+  background-color: #fff;
+  background-image: none;
+  background-position: 0 90%;
+  background-repeat: repeat no-repeat;
+  background-size: 4px 3px;
+  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+  box-sizing: border-box;
+  color: #41403e;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Neucha, sans-serif;
+  font-size: 1rem;
+  line-height: 23px;
+  outline: none;
+  padding: .25rem;
+  text-decoration: none;
+  transition: all 235ms ease-in-out;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+button:hover {
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+  transform: translate3d(0, 2px, 0);
+}
+
+button:focus {
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+}
+#open-book-button{
+  position: absolute;
+  top: 485px;
+  left: 1075px;
+}
+/* Container holding both frames */
+#frames-container {
+  display: block;
+  width: 100%;
+}
+
+/* Each frame takes full viewport height */
+.frame {
+  width: 100%;
+  height: 100vh; 
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background video */
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* Mermaid & Shark Containers */
+#mermaid-container, 
+#shark-container {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: 5;
+}
+
+/* Position and size for Mermaid & Shark images */
+#mermaid, #shark {
+  width: 350px;
+  cursor: pointer;
+  transition: transform 0.5s ease-in-out;
+  z-index: 6;
+}
+
+/* Traveller Containers */
+#traveller-container-top,
+#traveller-container-bottom {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Traveller images */
+#traveller-top, #traveller-bottom {
+  width: 200px;
+  cursor: pointer;
+  z-index: 11;
+}
+
+/* Char Bubble (Now at Top Right in Both Frames) */
+#char-bubble-top, #char-bubble-bottom {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 220px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+  z-index: 9999;
+}
+#char-bubble-top:hover, #char-bubble-bottom:hover {
+  transform: scale(1.3);
+  filter: brightness(1.8);
+}
+
+/* Starfish */
+#starfish-top, #starfish-bottom {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  width: 140px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+  z-index: 9999;
+}
+#starfish-top:hover, #starfish-bottom:hover {
+  transform: translateY(-12px) scale(1.1);
+}
+
+/* Turtle */
+#turtle-top, #turtle-bottom {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 140px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+  z-index: 9999;
+}
+#turtle-top:hover, #turtle-bottom:hover {
+  transform: translateY(-12px) scale(1.1);
+}
+
+/* Speech Bubbles */
+.speech-bubble {
+  position: absolute;
+  bottom: 130%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 250px;
+  padding: 15px;
+  background-color: white;
+  color: black;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  border: 3px solid black;
+  border-radius: 30px;
+  box-shadow: 4px 4px 0px black;
+  z-index: 10000;
+  font-family: "Comic Sans MS", "Bangers", cursive;
+}
+#scene1, #book, #finalScene {
+  /* Set height of div to 100% */
+  height: 100vh;
+  /* The bottom three background CSS settings create parallax effect */
+  /*background-attachment: fixed; */
+  background-size: cover;
+  background-position: center;
+}
+#scene1{
+  /* Set background image of bakery section using url() function */
+  background-image: url('homepage.png');
+}
+#book{
+  /* Set background image of bakery section using url() function */
+  background-image: url('book.png');
+}
+#finalScene{
+  /* Set background image of bakery section using url() function */
+  background-image: url('finalscene.png');
+}
+
+.navigate-image {
+  position: absolute;
+  bottom: 20px;  /* Positions the image at the bottom */
+  left: 25%;
+  transform: translateX(-50%);
+  width: 200px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.navigate-image:hover {
+  transform: scale(1.1);
+}
+
+#frame3-container,
+#frame4-container {
+ position: relative;
+}
+
+
+/* Bird styling (Frame 3) */
+.bird {
+ position: absolute;
+ width: 60px;
+ animation: flyBird 3s linear forwards;
+ pointer-events: none;
+ z-index: 9999;
+}
+
+
+@keyframes flyBird {
+ 0% {
+   transform: translate(-10%, 50%) scale(1);
+   opacity: 1;
+ }
+ 50% {
+   transform: translate(50vw, -30vh) scale(1.2);
+ }
+ 100% {
+   transform: translate(100vw, -80vh) scale(1);
+   opacity: 0;
+ }
+}
+
+/* Orange styling (Frame 4) - no animation, just appear */
+.orange {
+ position: absolute;
+ width: 60px;
+ pointer-events: none;
+ z-index: 9999;
+}
+
+/* for the desert pictures */
+.container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+.image-box {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+    .image-box:hover {
+        flex: 1.5;
+        z-index: 2;
+    }
+
+    .image-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .image-box:hover img {
+        transform: scale(1.05);
+    }
+
+.fullscreen-image-container {
+    width: 100%;
+    height: 100vh; /* Full screen height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(50px) scale(0.9); /* Start slightly smaller */
+    transition: opacity 1s ease, transform 1s ease-in-out;
+}
+
+    /* Apply the animation when visible */
+    .fullscreen-image-container.visible {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+/* Floating & glowing effect */
+.fullscreen-image {
+    width: 100vw; /* Full screen width */
+    height: 100vh; /* Full screen height */
+    object-fit: cover; /* Ensures image covers the entire screen */
+    filter: blur(3px); /* Initial blur effect */
+    animation: floatUpDown 4s ease-in-out infinite alternate, glowEffect 2s infinite alternate;
+}
+
+/* Floating effect: moves image up & down */
+@keyframes floatUpDown {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Glow effect: subtle brightness change */
+@keyframes glowEffect {
+    0% {
+        filter: brightness(1) blur(1px);
+    }
+
+    100% {
+        filter: brightness(1.2) blur(1px);
+    }
+}
+
