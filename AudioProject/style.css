@@ -23,13 +23,14 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 850px;
-    height: 450px; /* ↓ Reduced height to tighten space */
+    width: 1000px; /* ✅ Wider container */
+    height: 450px;  /* 🔁 Slightly shorter */
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
   }
+
   .earth-image {
     width: 250px;
     height: 250px;
@@ -112,23 +113,21 @@ body {
     z-index: 1;
   }
 
-  #subtitle-container {
-    position: absolute;
-    top: 90%; /* ↑ Raised subtitles a bit */
-    left: 50%;
-    transform: translate(-50%, 0);
-    text-align: center;
-    font-size: 1.2rem;
-    color: #333;
-    font-weight: 500;
-    max-width: 500px; /* ↑ Wider box */
-    padding: 14px;
-    background-color: rgba(255, 255, 255, 0.85);
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    display: none;
-    white-space: normal;
-    line-height: 1.4;
-  }
-  
-  
+#subtitle-container {
+  position: absolute;
+  bottom: 10px; /* ✅ Position within center-container (at the bottom) */
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 1.2rem;
+  color: #333;
+  font-weight: 500;
+  max-width: 500px; /* ✅ Wider subtitle box */
+  padding: 14px;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  display: none;
+  white-space: normal;
+  line-height: 1.4;
+}
