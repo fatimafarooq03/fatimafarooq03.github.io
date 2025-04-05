@@ -115,19 +115,19 @@ body {
 
 #subtitle-container {
   position: absolute;
-  top: 50%;
+  top: 55%; /* shifted slightly lower to stay clear of title */
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.2rem; /* slightly smaller */
   color: #333;
   font-weight: 500;
-  max-width: 600px;
-  padding: 20px 24px;
+  max-width: 500px; /* narrower box */
+  padding: 16px 20px;
   background-color: rgba(255, 255, 255, 0.95);
   border-radius: 16px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
   display: none;
-  line-height: 1.6;
+  line-height: 1.5;
   z-index: 5;
 }
