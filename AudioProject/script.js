@@ -1,5 +1,3 @@
-const subtitleBox = document.getElementById('subtitle-container');
-const countryPages = document.querySelectorAll('.country-page');
 const audioMap = {
   "uae": document.getElementById("audio-uae"),
   "pakistan": document.getElementById("audio-pakistan"),
@@ -7,32 +5,45 @@ const audioMap = {
   "spain": document.getElementById("audio-spain")
 };
 
-// Show selected country page and hide others
+const subtitleBoxes = {
+  "uae": document.getElementById("subtitle-uae"),
+  "pakistan": document.getElementById("subtitle-pakistan"),
+  "france": document.getElementById("subtitle-france"),
+  "spain": document.getElementById("subtitle-spain")
+};
+
+// Country selection buttons
+const countryPages = document.querySelectorAll('.country-page');
 document.querySelectorAll('.nav-item').forEach(button => {
+  const selected = button.getAttribute('data-country');
   button.addEventListener('click', () => {
-    const selected = button.getAttribute('data-country');
     countryPages.forEach(page => {
       page.style.display = page.id === `${selected}-page` ? 'block' : 'none';
     });
-    subtitleBox.style.display = 'none';
+    Object.values(subtitleBoxes).forEach(box => {
+      box.style.display = 'none';
+    });
   });
 });
 
-// Handle play button functionality
-document.querySelectorAll('.play-btn').forEach(button => {
+// Play buttons
+const playButtons = document.querySelectorAll('.play-btn');
+playButtons.forEach(button => {
   button.addEventListener('click', () => {
-    const audioId = button.getAttribute('data-audio');
-    const audio = audioMap[audioId];
+    const key = button.getAttribute('data-audio');
+    const audio = audioMap[key];
+    const subtitleBox = subtitleBoxes[key];
 
-    // Reset others
-    Object.values(audioMap).forEach(a => {
-      if (a !== audio) {
+    Object.entries(audioMap).forEach(([k, a]) => {
+      if (k !== key) {
         a.pause();
         a.currentTime = 0;
+        subtitleBoxes[k].style.display = 'none';
       }
     });
-    document.querySelectorAll('.play-btn').forEach(b => {
-      if (b !== button) b.textContent = '▶';
+
+    playButtons.forEach(btn => {
+      if (btn !== button) btn.textContent = '▶';
     });
 
     if (audio.paused) {
@@ -40,12 +51,14 @@ document.querySelectorAll('.play-btn').forEach(button => {
       subtitleBox.style.display = 'block';
       subtitleBox.innerText = '';
       audio.play();
+
       const track = audio.textTracks[0];
       track.mode = 'showing';
       track.oncuechange = () => {
         const cue = track.activeCues[0];
         subtitleBox.innerHTML = cue ? cue.text.replace(/\n/g, '<br>') : '';
       };
+
       audio.onended = () => {
         button.textContent = '▶';
         subtitleBox.style.display = 'none';

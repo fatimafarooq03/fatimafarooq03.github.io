@@ -17,10 +17,10 @@
   </div>
 
   <div id="country-container">
-    <!-- Template for each country -->
     <div class="country-page" id="uae-page">
       <img src="uae.jpg" alt="UAE" class="country-img">
       <button class="play-btn" data-audio="uae">▶</button>
+      <div class="subtitle-container" id="subtitle-uae"></div>
       <audio id="audio-uae" preload="metadata">
         <source src="uae.mp3" type="audio/mpeg">
         <track kind="subtitles" src="uae.vtt" srclang="en" label="English" default>
@@ -30,6 +30,7 @@
     <div class="country-page" id="pakistan-page">
       <img src="pakistan.jpg" alt="Pakistan" class="country-img">
       <button class="play-btn" data-audio="pakistan">▶</button>
+      <div class="subtitle-container" id="subtitle-pakistan"></div>
       <audio id="audio-pakistan" preload="metadata">
         <source src="pakistan.mp3" type="audio/mpeg">
         <track kind="subtitles" src="pakistan.vtt" srclang="en" label="English" default>
@@ -39,6 +40,7 @@
     <div class="country-page" id="france-page">
       <img src="france.jpg" alt="France" class="country-img">
       <button class="play-btn" data-audio="france">▶</button>
+      <div class="subtitle-container" id="subtitle-france"></div>
       <audio id="audio-france" preload="metadata">
         <source src="france.mp3" type="audio/mpeg">
         <track kind="subtitles" src="france.vtt" srclang="en" label="English" default>
@@ -48,14 +50,13 @@
     <div class="country-page" id="spain-page">
       <img src="spain.jpg" alt="Spain" class="country-img">
       <button class="play-btn" data-audio="spain">▶</button>
+      <div class="subtitle-container" id="subtitle-spain"></div>
       <audio id="audio-spain" preload="metadata">
         <source src="spain.mp3" type="audio/mpeg">
         <track kind="subtitles" src="spain.vtt" srclang="en" label="English" default>
       </audio>
     </div>
   </div>
-
-  <div id="subtitle-container"></div>
 
   <script src="script.js"></script>
 </body>
