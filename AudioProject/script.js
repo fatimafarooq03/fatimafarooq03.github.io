@@ -1,74 +1,60 @@
-// Subtitle box
 const subtitleBox = document.getElementById('subtitle-container');
-
-// Map of audio elements by country name (match img alt text)
+const countryPages = document.querySelectorAll('.country-page');
 const audioMap = {
-  "France": document.getElementById("audio-france"),
-  "Pakistan": document.getElementById("audio-pakistan"),
-  "UAE": document.getElementById("audio-uae"),
-  "Spain": document.getElementById("audio-spain")
+  "uae": document.getElementById("audio-uae"),
+  "pakistan": document.getElementById("audio-pakistan"),
+  "france": document.getElementById("audio-france"),
+  "spain": document.getElementById("audio-spain")
 };
 
+// Show selected country page and hide others
+document.querySelectorAll('.nav-item').forEach(button => {
+  button.addEventListener('click', () => {
+    const selected = button.getAttribute('data-country');
+    countryPages.forEach(page => {
+      page.style.display = page.id === `${selected}-page` ? 'block' : 'none';
+    });
+    subtitleBox.style.display = 'none';
+  });
+});
+
+// Handle play button functionality
 document.querySelectorAll('.play-btn').forEach(button => {
   button.addEventListener('click', () => {
-    const wrapper = button.parentElement;
-    const img = wrapper.querySelector('.country-img');
-    const country = img.alt;
-    const audio = audioMap[country];
+    const audioId = button.getAttribute('data-audio');
+    const audio = audioMap[audioId];
 
-    // Reset UI and stop all others
-    document.querySelectorAll('.play-btn').forEach(btn => {
-      if (btn !== button) {
-        btn.textContent = '▶';
-        btn.classList.remove('playing');
-      }
-    });
-    document.querySelectorAll('.country-img').forEach(i => {
-      if (i !== img) {
-        i.classList.remove('playing');
-      }
-    });
+    // Reset others
     Object.values(audioMap).forEach(a => {
-      a.pause();
-      a.currentTime = 0;
+      if (a !== audio) {
+        a.pause();
+        a.currentTime = 0;
+      }
+    });
+    document.querySelectorAll('.play-btn').forEach(b => {
+      if (b !== button) b.textContent = '▶';
     });
 
-    // If already playing, stop it
-    if (button.classList.contains('playing')) {
+    if (audio.paused) {
+      button.textContent = '■';
+      subtitleBox.style.display = 'block';
+      subtitleBox.innerText = '';
+      audio.play();
+      const track = audio.textTracks[0];
+      track.mode = 'showing';
+      track.oncuechange = () => {
+        const cue = track.activeCues[0];
+        subtitleBox.innerHTML = cue ? cue.text.replace(/\n/g, '<br>') : '';
+      };
+      audio.onended = () => {
+        button.textContent = '▶';
+        subtitleBox.style.display = 'none';
+      };
+    } else {
       audio.pause();
       audio.currentTime = 0;
-      button.classList.remove('playing');
       button.textContent = '▶';
-      img.classList.remove('playing');
       subtitleBox.style.display = 'none';
-      return;
     }
-
-    // Play selected audio
-    button.classList.add('playing');
-    button.textContent = '■';
-    img.classList.add('playing');
-    subtitleBox.style.display = 'block';
-    subtitleBox.innerText = ''; // clear previous text
-
-    audio.play();
-
-    const track = audio.textTracks[0];
-    track.mode = 'showing'; // not showing browser default
-
-    // Listen to subtitle cue changes
-    track.oncuechange = () => {
-      const cue = track.activeCues[0];
-      subtitleBox.innerHTML = cue ? cue.text.replace(/\n/g, '<br>') : '';
-
-    };
-
-    // When audio ends
-    audio.addEventListener('ended', () => {
-      button.classList.remove('playing');
-      button.textContent = '▶';
-      img.classList.remove('playing');
-      subtitleBox.style.display = 'none';
-    });
   });
 });

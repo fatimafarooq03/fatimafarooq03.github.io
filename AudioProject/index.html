@@ -9,71 +9,54 @@
 <body>
   <h1 class="title">The Treasure Trail Across Borders</h1>
 
-  <div class="center-container">
-    <!-- <img src="earth.png" alt="Earth" class="earth-image"> -->
+  <div class="navbar">
+    <button class="nav-item" data-country="uae">UAE</button>
+    <button class="nav-item" data-country="pakistan">Pakistan</button>
+    <button class="nav-item" data-country="france">France</button>
+    <button class="nav-item" data-country="spain">Spain</button>
+  </div>
 
-    <!-- Audio elements for each country: -->
-    <audio id="audio-pakistan" preload="metadata">
-      <source src="pakistan.mp3" type="audio/mpeg">
-      <track kind="subtitles" src="pakistan.vtt" srclang="en" label="English" default>
-    </audio>
-
-    <audio id="audio-france" preload="metadata">
-      <source src="france.mp3" type="audio/mpeg">
-      <track kind="subtitles" src="france.vtt" srclang="en" label="English" default>
-    </audio>
-
-    <audio id="audio-uae" preload="metadata">
-      <source src="uae.mp3" type="audio/mpeg">
-      <track kind="subtitles" src="uae.vtt" srclang="en" label="English" default>
-    </audio>
-
-    <audio id="audio-spain" preload="metadata">
-      <source src="spain.mp3" type="audio/mpeg">
-      <track kind="subtitles" src="spain.vtt" srclang="en" label="English" default>
-    </audio>
-
-    <!-- Pakistan -->
-    <div class="side-image left top">
-      <div class="img-wrapper">
-        <img src="pakistan.jpg" alt="Pakistan" class="country-img">
-        <button class="play-btn">▶</button>
-      </div>
-      <span class="caption">Pakistan</span>
+  <div id="country-container">
+    <!-- Template for each country -->
+    <div class="country-page" id="uae-page">
+      <img src="uae.jpg" alt="UAE" class="country-img">
+      <button class="play-btn" data-audio="uae">▶</button>
+      <audio id="audio-uae" preload="metadata">
+        <source src="uae.mp3" type="audio/mpeg">
+        <track kind="subtitles" src="uae.vtt" srclang="en" label="English" default>
+      </audio>
     </div>
 
-    <!-- France -->
-    <div class="side-image left bottom">
-      <div class="img-wrapper">
-        <img src="france.jpg" alt="France" class="country-img">
-        <button class="play-btn">▶</button>
-      </div>
-      <span class="caption">France</span>
+    <div class="country-page" id="pakistan-page">
+      <img src="pakistan.jpg" alt="Pakistan" class="country-img">
+      <button class="play-btn" data-audio="pakistan">▶</button>
+      <audio id="audio-pakistan" preload="metadata">
+        <source src="pakistan.mp3" type="audio/mpeg">
+        <track kind="subtitles" src="pakistan.vtt" srclang="en" label="English" default>
+      </audio>
     </div>
 
-    <!-- UAE -->
-    <div class="side-image right top">
-      <div class="img-wrapper">
-        <img src="uae.jpg" alt="UAE" class="country-img">
-        <button class="play-btn">▶</button>
-      </div>
-      <span class="caption">UAE (START HERE !! )</span>
+    <div class="country-page" id="france-page">
+      <img src="france.jpg" alt="France" class="country-img">
+      <button class="play-btn" data-audio="france">▶</button>
+      <audio id="audio-france" preload="metadata">
+        <source src="france.mp3" type="audio/mpeg">
+        <track kind="subtitles" src="france.vtt" srclang="en" label="English" default>
+      </audio>
     </div>
 
-    <!-- Spain -->
-    <div class="side-image right bottom">
-      <div class="img-wrapper">
-        <img src="spain.jpg" alt="Spain" class="country-img">
-        <button class="play-btn">▶</button>
-      </div>
-      <span class="caption">Spain</span>
+    <div class="country-page" id="spain-page">
+      <img src="spain.jpg" alt="Spain" class="country-img">
+      <button class="play-btn" data-audio="spain">▶</button>
+      <audio id="audio-spain" preload="metadata">
+        <source src="spain.mp3" type="audio/mpeg">
+        <track kind="subtitles" src="spain.vtt" srclang="en" label="English" default>
+      </audio>
     </div>
+  </div>
 
-    <!-- Subtitle container -->
-    <div id="subtitle-container"></div>
-  </div> <!-- closes .center-container -->
+  <div id="subtitle-container"></div>
 
   <script src="script.js"></script>
 </body>
 </html>
-
