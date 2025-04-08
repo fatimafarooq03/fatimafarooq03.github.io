@@ -202,3 +202,29 @@ body {
   z-index: 3;
   text-align: center;
 }
+
+.audio-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.audio-controls .play-btn,
+.audio-controls .speed-btn {
+  padding: 10px 16px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  cursor: pointer;
+}
+
+.audio-controls .progress-bar {
+  width: 300px;
+  height: 8px;
+  border-radius: 5px;
+  background: #eee;
+}

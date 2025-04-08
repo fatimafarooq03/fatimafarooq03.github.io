@@ -13,7 +13,7 @@
     Your browser does not support the video tag.
   </video>
 
-  <!-- Title -->
+  <!-- Page Title -->
   <h1 class="title" id="page-title">The Treasure Trail Across Borders</h1>
 
   <!-- Pirate scene -->
@@ -25,27 +25,29 @@
     </div>
   </div>
 
-  <!-- Navigation bar -->
+  <!-- Top Navbar -->
   <div class="navbar">
     <button class="nav-item" id="home-btn">Home</button>
   </div>
 
-  <!-- UAE Button on home page -->
+  <!-- UAE button on home page -->
   <div class="landing-buttons" id="landing-options">
     <button class="nav-item unlock-btn" data-country="uae">UAE</button>
   </div>
 
-  <!-- Country sections -->
+  <!-- Country Content Container -->
   <div id="country-container">
 
     <!-- UAE -->
     <div class="country-page" id="uae-page">
       <div class="img-wrapper">
         <img src="uae.jpg" alt="UAE" class="country-img">
+      </div>
+      <div class="audio-controls">
         <button class="play-btn" data-audio="uae">▶</button>
+        <input type="range" class="progress-bar" id="progress-uae" value="0" min="0" max="100">
         <button class="speed-btn" data-audio="uae">Speed: 1x</button>
       </div>
-      <input type="range" class="progress-bar" id="progress-uae" value="0" min="0" max="100">
       <div class="subtitle-container" id="subtitle-uae"></div>
       <audio id="audio-uae" preload="metadata">
         <source src="uae.mp3" type="audio/mpeg">
@@ -60,10 +62,12 @@
     <div class="country-page" id="pakistan-page">
       <div class="img-wrapper">
         <img src="pakistan.jpg" alt="Pakistan" class="country-img">
+      </div>
+      <div class="audio-controls">
         <button class="play-btn" data-audio="pakistan">▶</button>
+        <input type="range" class="progress-bar" id="progress-pakistan" value="0" min="0" max="100">
         <button class="speed-btn" data-audio="pakistan">Speed: 1x</button>
       </div>
-      <input type="range" class="progress-bar" id="progress-pakistan" value="0" min="0" max="100">
       <div class="subtitle-container" id="subtitle-pakistan"></div>
       <audio id="audio-pakistan" preload="metadata">
         <source src="pakistan.mp3" type="audio/mpeg">
@@ -78,10 +82,12 @@
     <div class="country-page" id="france-page">
       <div class="img-wrapper">
         <img src="france.jpg" alt="France" class="country-img">
+      </div>
+      <div class="audio-controls">
         <button class="play-btn" data-audio="france">▶</button>
+        <input type="range" class="progress-bar" id="progress-france" value="0" min="0" max="100">
         <button class="speed-btn" data-audio="france">Speed: 1x</button>
       </div>
-      <input type="range" class="progress-bar" id="progress-france" value="0" min="0" max="100">
       <div class="subtitle-container" id="subtitle-france"></div>
       <audio id="audio-france" preload="metadata">
         <source src="france.mp3" type="audio/mpeg">
@@ -96,10 +102,12 @@
     <div class="country-page" id="spain-page">
       <div class="img-wrapper">
         <img src="spain.jpg" alt="Spain" class="country-img">
+      </div>
+      <div class="audio-controls">
         <button class="play-btn" data-audio="spain">▶</button>
+        <input type="range" class="progress-bar" id="progress-spain" value="0" min="0" max="100">
         <button class="speed-btn" data-audio="spain">Speed: 1x</button>
       </div>
-      <input type="range" class="progress-bar" id="progress-spain" value="0" min="0" max="100">
       <div class="subtitle-container" id="subtitle-spain"></div>
       <audio id="audio-spain" preload="metadata">
         <source src="spain.mp3" type="audio/mpeg">
