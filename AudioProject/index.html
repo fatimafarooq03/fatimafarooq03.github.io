@@ -7,22 +7,28 @@
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Background video -->
   <video autoplay muted loop id="bg-video">
     <source src="earth.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
 
+  <!-- Title -->
   <h1 class="title" id="page-title">The Treasure Trail Across Borders</h1>
 
+  <!-- Top Navbar (Home Only) -->
   <div class="navbar">
     <button class="nav-item" id="home-btn">Home</button>
-    <button class="nav-item" data-country="uae">UAE</button>
-    <button class="nav-item" data-country="pakistan">Pakistan</button>
-    <button class="nav-item" data-country="france">France</button>
-    <button class="nav-item" data-country="spain">Spain</button>
   </div>
 
+  <!-- UAE button shown on landing page -->
+  <div class="landing-buttons" id="landing-options">
+    <button class="nav-item unlock-btn" data-country="uae">UAE</button>
+  </div>
+
+  <!-- Country container -->
   <div id="country-container">
+
     <!-- UAE -->
     <div class="country-page" id="uae-page">
       <img src="uae.jpg" alt="UAE" class="country-img">
@@ -34,6 +40,9 @@
         <source src="uae.mp3" type="audio/mpeg">
         <track kind="subtitles" src="uae.vtt" srclang="en" label="English" default>
       </audio>
+      <button class="nav-item unlock-btn" data-country="pakistan">Pakistan</button>
+      <button class="nav-item unlock-btn" data-country="france">France</button>
+      <button class="nav-item unlock-btn" data-country="spain">Spain</button>
     </div>
 
     <!-- Pakistan -->
@@ -47,6 +56,9 @@
         <source src="pakistan.mp3" type="audio/mpeg">
         <track kind="subtitles" src="pakistan.vtt" srclang="en" label="English" default>
       </audio>
+      <button class="nav-item unlock-btn" data-country="uae">UAE</button>
+      <button class="nav-item unlock-btn" data-country="france">France</button>
+      <button class="nav-item unlock-btn" data-country="spain">Spain</button>
     </div>
 
     <!-- France -->
@@ -60,6 +72,9 @@
         <source src="france.mp3" type="audio/mpeg">
         <track kind="subtitles" src="france.vtt" srclang="en" label="English" default>
       </audio>
+      <button class="nav-item unlock-btn" data-country="uae">UAE</button>
+      <button class="nav-item unlock-btn" data-country="pakistan">Pakistan</button>
+      <button class="nav-item unlock-btn" data-country="spain">Spain</button>
     </div>
 
     <!-- Spain -->
@@ -73,9 +88,14 @@
         <source src="spain.mp3" type="audio/mpeg">
         <track kind="subtitles" src="spain.vtt" srclang="en" label="English" default>
       </audio>
+      <button class="nav-item unlock-btn" data-country="uae">UAE</button>
+      <button class="nav-item unlock-btn" data-country="pakistan">Pakistan</button>
+      <button class="nav-item unlock-btn" data-country="france">France</button>
     </div>
+
   </div>
 
+  <!-- JavaScript -->
   <script src="script.js"></script>
 </body>
 </html>

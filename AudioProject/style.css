@@ -144,3 +144,12 @@ body {
   background: #ff69b4;
   cursor: pointer;
 }
+
+.landing-buttons {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  text-align: center;
+}
