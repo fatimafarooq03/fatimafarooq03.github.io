@@ -1,5 +1,7 @@
 const titleElement = document.getElementById("page-title");
 const bgVideo = document.getElementById("bg-video");
+const pirateScene = document.getElementById("pirate-scene");
+const landingButtons = document.getElementById("landing-options");
 
 const audioMap = {
   "uae": document.getElementById("audio-uae"),
@@ -22,14 +24,20 @@ const progressBars = {
   "spain": document.getElementById("progress-spain")
 };
 
+// Home button resets everything
 document.getElementById("home-btn").addEventListener("click", () => {
+  // Hide country sections
   document.querySelectorAll('.country-page').forEach(page => {
     page.style.display = "none";
   });
 
+  // Show landing elements
   bgVideo.style.display = "block";
   titleElement.textContent = "The Treasure Trail Across Borders";
+  pirateScene.style.display = "flex";
+  landingButtons.style.display = "block";
 
+  // Reset all audio
   Object.values(audioMap).forEach(audio => {
     audio.pause();
     audio.currentTime = 0;
@@ -42,20 +50,28 @@ document.getElementById("home-btn").addEventListener("click", () => {
   document.querySelectorAll('.speed-btn').forEach(btn => btn.textContent = "Speed: 1x");
 });
 
-document.querySelectorAll('.nav-item').forEach(button => {
+// Handle all country buttons
+document.querySelectorAll('[data-country]').forEach(button => {
   const selected = button.getAttribute('data-country');
-  if (!selected) return;
+  if (!selected || !audioMap[selected]) return;
 
   button.addEventListener('click', () => {
+    // Hide landing page content
     bgVideo.style.display = "none";
+    pirateScene.style.display = "none";
+    landingButtons.style.display = "none";
+
+    // Update title
     titleElement.textContent = selected === "uae"
       ? "UAE"
       : selected.charAt(0).toUpperCase() + selected.slice(1);
 
+    // Show the selected country section
     document.querySelectorAll('.country-page').forEach(page => {
       page.style.display = page.id === `${selected}-page` ? 'block' : 'none';
     });
 
+    // Reset audio/subtitles/progress for all countries
     Object.keys(audioMap).forEach(k => {
       const a = audioMap[k];
       a.pause();
@@ -70,6 +86,7 @@ document.querySelectorAll('.nav-item').forEach(button => {
   });
 });
 
+// Handle play/pause audio logic
 document.querySelectorAll('.play-btn').forEach(button => {
   button.addEventListener('click', () => {
     const key = button.getAttribute('data-audio');
@@ -124,6 +141,7 @@ document.querySelectorAll('.play-btn').forEach(button => {
   });
 });
 
+// Handle speed changes
 document.querySelectorAll('.speed-btn').forEach(button => {
   button.addEventListener('click', () => {
     const key = button.getAttribute('data-audio');
@@ -136,7 +154,10 @@ document.querySelectorAll('.speed-btn').forEach(button => {
   });
 });
 
+// Ensure landing visuals show on first load
 window.onload = () => {
   bgVideo.style.display = 'block';
+  pirateScene.style.display = 'flex';
+  landingButtons.style.display = 'block';
   titleElement.textContent = 'The Treasure Trail Across Borders';
 };

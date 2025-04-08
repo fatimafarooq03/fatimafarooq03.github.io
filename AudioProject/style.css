@@ -153,3 +153,52 @@ body {
   z-index: 3;
   text-align: center;
 }
+.pirate-scene {
+  position: absolute;
+  top: 45%; /* moved higher */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  text-align: left;
+}
+
+.pirate-img {
+  height: 240px;
+}
+
+.speech-bubble {
+  max-width: 420px;
+  padding: 20px 24px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 2px 2px 12px rgba(0,0,0,0.3);
+  font-size: 1.2rem;
+  line-height: 1.6;
+  font-weight: 500;
+  position: relative;
+}
+
+.speech-bubble::after {
+  content: "";
+  position: absolute;
+  top: 40px;
+  left: -20px;
+  width: 0;
+  height: 0;
+  border: 12px solid transparent;
+  border-right-color: #fff;
+}
+
+
+/* UAE button on landing page */
+.landing-buttons {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  text-align: center;
+}
