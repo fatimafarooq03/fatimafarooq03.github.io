@@ -13,7 +13,7 @@
     Your browser does not support the video tag.
   </video>
 
-  <!-- Page title -->
+  <!-- Title -->
   <h1 class="title" id="page-title">The Treasure Trail Across Borders</h1>
 
   <!-- Pirate scene -->
@@ -25,24 +25,26 @@
     </div>
   </div>
 
-  <!-- Top navbar -->
+  <!-- Navigation bar -->
   <div class="navbar">
     <button class="nav-item" id="home-btn">Home</button>
   </div>
 
-  <!-- UAE button on landing page -->
+  <!-- UAE Button on home page -->
   <div class="landing-buttons" id="landing-options">
     <button class="nav-item unlock-btn" data-country="uae">UAE</button>
   </div>
 
-  <!-- Country pages -->
+  <!-- Country sections -->
   <div id="country-container">
 
     <!-- UAE -->
     <div class="country-page" id="uae-page">
-      <img src="uae.jpg" alt="UAE" class="country-img">
-      <button class="play-btn" data-audio="uae">▶</button>
-      <button class="speed-btn" data-audio="uae">Speed: 1x</button>
+      <div class="img-wrapper">
+        <img src="uae.jpg" alt="UAE" class="country-img">
+        <button class="play-btn" data-audio="uae">▶</button>
+        <button class="speed-btn" data-audio="uae">Speed: 1x</button>
+      </div>
       <input type="range" class="progress-bar" id="progress-uae" value="0" min="0" max="100">
       <div class="subtitle-container" id="subtitle-uae"></div>
       <audio id="audio-uae" preload="metadata">
@@ -56,9 +58,11 @@
 
     <!-- Pakistan -->
     <div class="country-page" id="pakistan-page">
-      <img src="pakistan.jpg" alt="Pakistan" class="country-img">
-      <button class="play-btn" data-audio="pakistan">▶</button>
-      <button class="speed-btn" data-audio="pakistan">Speed: 1x</button>
+      <div class="img-wrapper">
+        <img src="pakistan.jpg" alt="Pakistan" class="country-img">
+        <button class="play-btn" data-audio="pakistan">▶</button>
+        <button class="speed-btn" data-audio="pakistan">Speed: 1x</button>
+      </div>
       <input type="range" class="progress-bar" id="progress-pakistan" value="0" min="0" max="100">
       <div class="subtitle-container" id="subtitle-pakistan"></div>
       <audio id="audio-pakistan" preload="metadata">
@@ -72,9 +76,11 @@
 
     <!-- France -->
     <div class="country-page" id="france-page">
-      <img src="france.jpg" alt="France" class="country-img">
-      <button class="play-btn" data-audio="france">▶</button>
-      <button class="speed-btn" data-audio="france">Speed: 1x</button>
+      <div class="img-wrapper">
+        <img src="france.jpg" alt="France" class="country-img">
+        <button class="play-btn" data-audio="france">▶</button>
+        <button class="speed-btn" data-audio="france">Speed: 1x</button>
+      </div>
       <input type="range" class="progress-bar" id="progress-france" value="0" min="0" max="100">
       <div class="subtitle-container" id="subtitle-france"></div>
       <audio id="audio-france" preload="metadata">
@@ -88,9 +94,11 @@
 
     <!-- Spain -->
     <div class="country-page" id="spain-page">
-      <img src="spain.jpg" alt="Spain" class="country-img">
-      <button class="play-btn" data-audio="spain">▶</button>
-      <button class="speed-btn" data-audio="spain">Speed: 1x</button>
+      <div class="img-wrapper">
+        <img src="spain.jpg" alt="Spain" class="country-img">
+        <button class="play-btn" data-audio="spain">▶</button>
+        <button class="speed-btn" data-audio="spain">Speed: 1x</button>
+      </div>
       <input type="range" class="progress-bar" id="progress-spain" value="0" min="0" max="100">
       <div class="subtitle-container" id="subtitle-spain"></div>
       <audio id="audio-spain" preload="metadata">
