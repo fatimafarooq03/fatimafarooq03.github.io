@@ -1,125 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>The Treasure Trail Across Borders</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treasure Trail</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.2/p5.min.js"></script>
 </head>
 <body>
-  <!-- Background video -->
-  <video autoplay muted loop id="bg-video">
-    <source src="earth.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
 
-  <!-- Page Title -->
-  <h1 class="title" id="page-title">The Treasure Trail Across Borders</h1>
+    <!-- Background video (only visible on landing page) -->
+    <video autoplay muted loop id="bg-video">
+        <source src="assets/earth.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
 
-  <!-- Pirate scene -->
-  <div class="pirate-scene" id="pirate-scene">
-    <img src="pirate.png" alt="Pirate" class="pirate-img">
-    <div class="speech-bubble">
-      Let's go find the treasure that hides somewhere across this globe,<br>
-      but I know I must start from UAE — my home!
+    <!-- P5.js water particles background (displayed on country pages) -->
+    <div id="background-animation"></div>
+
+    <h1 class="title" id="page-title">The Treasure Trail Across Borders</h1>
+
+    <nav class="navbar">
+        <button class="nav-item" id="home-btn">Home</button>
+        <button class="nav-item" data-country="uae">UAE</button>
+        <button class="nav-item" data-country="pakistan">Pakistan</button>
+        <button class="nav-item" data-country="france">France</button>
+        <button class="nav-item" data-country="spain">Spain</button>
+    </nav>
+
+<div id="compass-container">
+    <div class="compass-base"></div>
+    <div class="compass-arrow"></div>
+</div>
+
+<!-- Adventure Journal -->
+<div id="journal-icon">📓</div>
+
+<div id="journal-modal" class="hidden">
+    <div class="journal-content">
+        <h2>Adventure Log</h2>
+        <div id="journal-entries"></div>
+        <div class="journal-input-container">
+            <textarea id="journal-input" placeholder="Add your own adventure notes..."></textarea>
+            <button id="journal-save">Save Note</button>
+        </div>
+        <button id="journal-close">×</button>
     </div>
-  </div>
+</div>
 
-  <!-- Top Navbar -->
-  <div class="navbar">
-    <button class="nav-item" id="home-btn">Home</button>
-  </div>
+<!-- Pirate character container for p5 -->
+<div id="pirate-character-container"></div>
 
-  <!-- UAE button on home page -->
-  <div class="landing-buttons" id="landing-options">
-    <button class="nav-item unlock-btn" data-country="uae">UAE</button>
-  </div>
+    <div class="clue-indicators">
+        <div class="clue-icon" id="desert-clue">🏜️</div>
+        <div class="clue-icon" id="forest-clue">🌳</div>
+        <div class="clue-icon" id="tower-clue">🗼</div>
+        <div class="clue-icon" id="bull-clue">🐂</div>
+    </div>
 
-  <!-- Country Content Container -->
-  <div id="country-container">
+    <div id="landing-page">
+        <div class="pirate-scene" id="pirate-scene">
+            <img src="assets/pirate.png" alt="Pirate" class="pirate-img">
+            <div class="speech-bubble">
+            </div>
+        </div>
+        <div class="landing-buttons" id="landing-options">
+            <button class="nav-item" data-country="uae">Start in UAE</button>
+        </div>
+    </div>
 
-    <!-- UAE -->
+    <!-- Country Pages with <track> elements -->
     <div class="country-page" id="uae-page">
-      <div class="img-wrapper">
-        <img src="uae.jpg" alt="UAE" class="country-img">
-      </div>
-      <div class="audio-controls">
-        <button class="play-btn" data-audio="uae">▶</button>
-        <input type="range" class="progress-bar" id="progress-uae" value="0" min="0" max="100">
-        <button class="speed-btn" data-audio="uae">Speed: 1x</button>
-      </div>
-      <div class="subtitle-container" id="subtitle-uae"></div>
-      <audio id="audio-uae" preload="metadata">
-        <source src="uae.mp3" type="audio/mpeg">
-        <track kind="subtitles" src="uae.vtt" srclang="en" label="English" default>
-      </audio>
-      <button class="nav-item unlock-btn" data-country="pakistan">Pakistan</button>
-      <button class="nav-item unlock-btn" data-country="france">France</button>
-      <button class="nav-item unlock-btn" data-country="spain">Spain</button>
+        <img src="assets/uae.jpg" alt="UAE Scenery" class="country-img">
+        <audio id="audio-uae" src="assets/uae.mp3" preload="metadata">
+            <!-- VTT Subtitle Track Added -->
+            <track label="English" kind="subtitles" srclang="en" src="assets/uae_subtitles.vtt">
+        </audio>
+        <div class="audio-controls">
+            <button class="play-btn" data-audio="uae">▶</button>
+            <input type="range" class="progress-bar" id="progress-uae" value="0" step="0.1">
+            <button class="speed-btn" data-audio="uae">Speed: 1x</button>
+        </div>
+        <!-- Container where subtitles will be displayed -->
+        <div class="subtitle-container" id="subtitle-uae"></div>
     </div>
 
-    <!-- Pakistan -->
     <div class="country-page" id="pakistan-page">
-      <div class="img-wrapper">
-        <img src="pakistan.jpg" alt="Pakistan" class="country-img">
-      </div>
-      <div class="audio-controls">
-        <button class="play-btn" data-audio="pakistan">▶</button>
-        <input type="range" class="progress-bar" id="progress-pakistan" value="0" min="0" max="100">
-        <button class="speed-btn" data-audio="pakistan">Speed: 1x</button>
-      </div>
-      <div class="subtitle-container" id="subtitle-pakistan"></div>
-      <audio id="audio-pakistan" preload="metadata">
-        <source src="pakistan.mp3" type="audio/mpeg">
-        <track kind="subtitles" src="pakistan.vtt" srclang="en" label="English" default>
-      </audio>
-      <button class="nav-item unlock-btn" data-country="uae">UAE</button>
-      <button class="nav-item unlock-btn" data-country="france">France</button>
-      <button class="nav-item unlock-btn" data-country="spain">Spain</button>
+        <img src="assets/pakistan.jpg" alt="Pakistan Scenery" class="country-img">
+        <audio id="audio-pakistan" src="assets/pakistan.mp3" preload="metadata">
+            <!-- VTT Subtitle Track Added -->
+            <track label="English" kind="subtitles" srclang="en" src="assets/pakistan_subtitles.vtt">
+        </audio>
+         <div class="audio-controls">
+            <button class="play-btn" data-audio="pakistan">▶</button>
+            <input type="range" class="progress-bar" id="progress-pakistan" value="0" step="0.1">
+            <button class="speed-btn" data-audio="pakistan">Speed: 1x</button>
+        </div>
+        <div class="subtitle-container" id="subtitle-pakistan"></div>
     </div>
 
-    <!-- France -->
     <div class="country-page" id="france-page">
-      <div class="img-wrapper">
-        <img src="france.jpg" alt="France" class="country-img">
-      </div>
-      <div class="audio-controls">
-        <button class="play-btn" data-audio="france">▶</button>
-        <input type="range" class="progress-bar" id="progress-france" value="0" min="0" max="100">
-        <button class="speed-btn" data-audio="france">Speed: 1x</button>
-      </div>
-      <div class="subtitle-container" id="subtitle-france"></div>
-      <audio id="audio-france" preload="metadata">
-        <source src="france.mp3" type="audio/mpeg">
-        <track kind="subtitles" src="france.vtt" srclang="en" label="English" default>
-      </audio>
-      <button class="nav-item unlock-btn" data-country="uae">UAE</button>
-      <button class="nav-item unlock-btn" data-country="pakistan">Pakistan</button>
-      <button class="nav-item unlock-btn" data-country="spain">Spain</button>
+        <img src="assets/france.jpg" alt="France Scenery" class="country-img">
+        <audio id="audio-france" src="assets/france.mp3" preload="metadata">
+             <!-- VTT Subtitle Track Added -->
+            <track label="English" kind="subtitles" srclang="en" src="assets/france_subtitles.vtt">
+        </audio>
+         <div class="audio-controls">
+            <button class="play-btn" data-audio="france">▶</button>
+            <input type="range" class="progress-bar" id="progress-france" value="0" step="0.1">
+            <button class="speed-btn" data-audio="france">Speed: 1x</button>
+        </div>
+        <div class="subtitle-container" id="subtitle-france"></div>
     </div>
 
-    <!-- Spain -->
     <div class="country-page" id="spain-page">
-      <div class="img-wrapper">
-        <img src="spain.jpg" alt="Spain" class="country-img">
-      </div>
-      <div class="audio-controls">
-        <button class="play-btn" data-audio="spain">▶</button>
-        <input type="range" class="progress-bar" id="progress-spain" value="0" min="0" max="100">
-        <button class="speed-btn" data-audio="spain">Speed: 1x</button>
-      </div>
-      <div class="subtitle-container" id="subtitle-spain"></div>
-      <audio id="audio-spain" preload="metadata">
-        <source src="spain.mp3" type="audio/mpeg">
-        <track kind="subtitles" src="spain.vtt" srclang="en" label="English" default>
-      </audio>
-      <button class="nav-item unlock-btn" data-country="uae">UAE</button>
-      <button class="nav-item unlock-btn" data-country="pakistan">Pakistan</button>
-      <button class="nav-item unlock-btn" data-country="france">France</button>
+        <img src="assets/spain.jpg" alt="Spain Scenery" class="country-img">
+        <audio id="audio-spain" src="assets/spain.mp3" preload="metadata">
+             <!-- VTT Subtitle Track Added -->
+            <track label="English" kind="subtitles" srclang="en" src="assets/spain_subtitles.vtt">
+        </audio>
+         <div class="audio-controls">
+            <button class="play-btn" data-audio="spain">▶</button>
+            <input type="range" class="progress-bar" id="progress-spain" value="0" step="0.1">
+            <button class="speed-btn" data-audio="spain">Speed: 1x</button>
+        </div>
+        <div class="subtitle-container" id="subtitle-spain"></div>
     </div>
 
-  </div>
+    <div class="adventure-progress" id="adventure-progress-bar">
+        <div class="progress-label">Adventure Progress</div>
+        <div class="progress-track">
+            <div class="progress-fill" id="adventure-fill"></div>
+        </div>
+        <div class="progress-countries">
+            <div class="country-dot" id="dot-uae">🇦🇪</div>
+            <div class="country-dot" id="dot-pakistan">🇵🇰</div>
+            <div class="country-dot" id="dot-france">🇫🇷</div>
+            <div class="country-dot" id="dot-spain">🇪🇸</div>
+        </div>
+    </div>
 
-  <script src="script.js"></script>
+    <!-- Background music audio element -->
+    <audio id="background-music" src="shanties/shanty1.mp3" loop preload="auto"></audio>
+
+    <script src="script.js"></script>
 </body>
 </html>
