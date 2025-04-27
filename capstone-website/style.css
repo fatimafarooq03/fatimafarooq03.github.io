@@ -11,7 +11,7 @@
   [data-theme="light"] {
     --bg-color: #f8fafc;
     --text-color: #0f172a;
-    --nav-link-color: #0f172a; /* dark blue/navy color for light mode */
+    --nav-link-color: #0f172a;
     --box-bg: #ffffff;
     --box-border: #cbd5e1;
     --code-bg: #e2e8f0;
@@ -168,6 +168,7 @@
     background-color: #0ea5e9;
   }
   
+  /* ─── Box Layout ─── */
   .flow-container {
     display: flex;
     flex-direction: column;
@@ -175,10 +176,25 @@
     align-items: center;
   }
   
-  /* ─── Box ─── */
-  .box {
+  .top-box {
     width: 100%;
-    max-width: 1000px;
+  }
+  
+  .bottom-boxes {
+    display: flex;
+    gap: 30px;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .model-box {
+    flex: 1;
+    min-width: 400px;
+  }
+  
+  /* ─── Box Styles ─── */
+  .box {
     background-color: var(--box-bg);
     padding: 20px;
     border-radius: 12px;
@@ -196,15 +212,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 10px; /* Added space between header and code */
   }
   
-  .box-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px; /* 👈 Add this */
+  .box-header h2 {
+    margin: 0;
+    font-size: 22px;
   }
-  
   
   /* ─── Copy Button ─── */
   .copy-btn {
@@ -268,6 +282,10 @@
   
     input#search-box {
       width: 100%;
+    }
+  
+    .bottom-boxes {
+      flex-direction: column;
     }
   
     .box {

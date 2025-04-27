@@ -35,7 +35,9 @@
     </div>
 
     <div class="flow-container">
-      <div class="box prompt-box">
+      
+      <!-- Prompt Box -->
+      <div class="box prompt-box top-box">
         <div class="box-header">
           <h2>Prompt</h2>
           <button class="copy-btn" data-target="prompt-box">📋</button>
@@ -45,25 +47,33 @@
         </div>
       </div>
 
-      <div class="box model-box">
-        <div class="box-header">
-          <h2>Original LLM</h2>
-          <button class="copy-btn" data-target="original-llm-box">📋</button>
+      <!-- Bottom Side-by-Side Boxes -->
+      <div class="bottom-boxes">
+        
+        <!-- Original LLM -->
+        <div class="box model-box">
+          <div class="box-header">
+            <h2>Original LLM</h2>
+            <button class="copy-btn" data-target="original-llm-box">📋</button>
+          </div>
+          <div id="original-llm-box" class="code-block">
+            <pre><code class="language-python"></code></pre>
+          </div>
         </div>
-        <div id="original-llm-box" class="code-block">
-          <pre><code class="language-python"></code></pre>
+
+        <!-- Fine-tuned LLM -->
+        <div class="box model-box">
+          <div class="box-header">
+            <h2>Fine-tuned & Optimized LLM</h2>
+            <button class="copy-btn" data-target="optimized-llm-box">📋</button>
+          </div>
+          <div id="optimized-llm-box" class="code-block">
+            <pre><code class="language-python"></code></pre>
+          </div>
         </div>
+
       </div>
 
-      <div class="box model-box">
-        <div class="box-header">
-          <h2>Fine-tuned & Optimized LLM</h2>
-          <button class="copy-btn" data-target="optimized-llm-box">📋</button>
-        </div>
-        <div id="optimized-llm-box" class="code-block">
-          <pre><code class="language-python"></code></pre>
-        </div>
-      </div>
     </div>
   </main>
 
