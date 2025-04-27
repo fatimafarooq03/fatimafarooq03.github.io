@@ -1,7 +1,7 @@
-const selectEl    = document.getElementById('search-options');
-const goBtn       = document.getElementById('search-button');
+const selectEl = document.getElementById('search-options');
+const goBtn = document.getElementById('search-button');
 
-// Data for each option
+// Content for each option
 const prompts = {
   path_traversal:
 `from flask import Flask, request, send_file, safe_join
@@ -97,7 +97,6 @@ app = Flask(__name__)
 def index():
     return "<p>Hello, World!</p>"
 
-# function which says hello to the user
 @app.route("hello")
 def hello():
     username = request.args.get('username')
@@ -156,7 +155,6 @@ app = Flask(__name__)
 def index():
     return "<p>Hello, World!</p>"
 
-# function which says hello to the user
 @app.route("hello")
 def hello():
     username = request.args.get('username')
@@ -165,7 +163,7 @@ def hello():
     return escape("Hello, %s!" % escape(username))`
 };
 
-// Helper function to update code blocks
+// Helper function
 function putCode(id, txt) {
   const codeElem = document.querySelector(`#${id} code`);
   codeElem.textContent = txt || '';
@@ -178,5 +176,6 @@ function fillBoxes(key) {
   putCode('optimized-llm-box', tunedOut[key]);
 }
 
+// click or change event
 goBtn.addEventListener('click', () => fillBoxes(selectEl.value));
 selectEl.addEventListener('change', () => fillBoxes(selectEl.value));

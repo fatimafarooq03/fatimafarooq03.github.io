@@ -6,11 +6,8 @@
   <title>Demonstration - SafeCode: Securing LLM Generated Code</title>
   <link rel="stylesheet" href="style.css">
 
-  <!-- Highlight.js CSS (GitHub Dark Theme) -->
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
-  <!-- Highlight.js Script -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <!-- Highlight.js CSS (GitHub Dark Theme from CDN) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark.min.css">
 </head>
 
 <body class="demo-body">
@@ -64,9 +61,9 @@
     </div>
   </main>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
   <script src="script.js"></script>
 
-  <!-- Highlight all code after page loads -->
   <script>
     document.addEventListener('DOMContentLoaded', () => hljs.highlightAll());
   </script>

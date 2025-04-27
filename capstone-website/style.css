@@ -183,7 +183,7 @@ nav ul li a:hover {
     border-radius: 8px;
     padding: 12px 14px;
     overflow-x: auto;
-}
+  }
 
 #prompt-box, #original-llm-box, #optimized-llm-box {
     flex-grow: 1;
