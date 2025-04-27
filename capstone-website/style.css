@@ -147,7 +147,7 @@ body, html {
     background-color: #0ea5e9;
   }
   
-  /* ─── Code Boxes ─── */
+  /* ─── Layout for Code Boxes ─── */
   .flow-container {
     display: flex;
     flex-direction: column;
@@ -155,19 +155,25 @@ body, html {
     align-items: center;
   }
   
-  /* Prompt, Original LLM, Fine-tuned LLM boxes */
-  .prompt-box, .model-box {
+  /* Box Styles (Prompt, Original LLM, Fine-tuned LLM) */
+  .box {
     width: 100%;
     max-width: 1000px;
     background-color: #1e293b;
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    transition: all 0.3s ease;
+  }
+  
+  /* Hover Glow Effect */
+  .box:hover {
+    box-shadow: 0 8px 24px rgba(56, 189, 248, 0.3);
+    transform: translateY(-4px);
   }
   
   /* Headers inside boxes */
-  .prompt-box h2,
-  .model-box h2 {
+  .box h2 {
     margin-top: 0;
     font-size: 22px;
     font-weight: 600;
@@ -175,13 +181,15 @@ body, html {
     border-bottom: 1px solid #334155;
     padding-bottom: 8px;
     margin-bottom: 16px;
+    text-align: left;
   }
   
+  /* ─── Code Block ─── */
   .code-block {
     background-color: #0d1117;
     border: 1px solid #30363d;
     border-radius: 8px;
-    padding: 0; /* remove extra padding around pre */
+    padding: 0;
     overflow-x: auto;
     min-height: 150px;
     white-space: pre-wrap;
@@ -189,18 +197,24 @@ body, html {
     color: inherit;
     display: flex;
     align-items: stretch;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  
+  .code-block.visible {
+    opacity: 1;
   }
   
   .code-block pre {
     margin: 0;
-    padding: 16px; /* only inner padding inside pre */
+    padding: 16px;
     flex: 1;
     font-family: 'Source Code Pro', 'Courier New', monospace;
     font-size: 15px;
     line-height: 1.5;
   }
   
-  /* ─── Responsive tweaks ─── */
+  /* ─── Responsive Tweaks ─── */
   @media (max-width: 600px) {
     .demo-wrapper {
       padding: 1rem;
@@ -217,11 +231,11 @@ body, html {
       width: 100%;
     }
   
-    .prompt-box, .model-box {
+    .box {
       padding: 15px;
     }
   
-    .prompt-box h2, .model-box h2 {
+    .box h2 {
       font-size: 20px;
     }
   }

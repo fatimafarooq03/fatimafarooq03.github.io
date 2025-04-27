@@ -1,6 +1,5 @@
 const searchBox = document.getElementById('search-box');
 const goBtn = document.getElementById('search-button');
-const statusDiv = document.getElementById('status');
 
 const labelToKey = {
   "CWE-022: Path Traversal": "path_traversal",
@@ -128,10 +127,10 @@ def ls():
     ls_proc = subprocess.Popen(ls, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     (ls_out, ls_err) = ls_proc.communicate()
     if ls_err:
-        print("Error running ls command: %s" % ls_err.decode())
+        console.log("Error:", ls_err.toString());
     if ls_out:
-        print(ls_out.decode())
-    return ls_out.decode()`,
+        console.log(ls_out.toString());
+    return ls_out.toString();`,
 
   xss: `import flask
 from flask import Flask, request
@@ -172,10 +171,5 @@ goBtn.addEventListener('click', () => {
   const key = labelToKey[selectedLabel];
   if (key) {
     fillBoxes(key);
-    statusDiv.textContent = 'Loaded ✓';
-    statusDiv.style.color = '#38bdf8';
-  } else {
-    statusDiv.textContent = 'Please select a valid option.';
-    statusDiv.style.color = 'red';
   }
 });
