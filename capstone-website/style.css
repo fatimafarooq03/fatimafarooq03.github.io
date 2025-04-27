@@ -198,10 +198,13 @@
     align-items: center;
   }
   
-  .box-header h2 {
-    margin: 0;
-    font-size: 22px;
+  .box-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px; /* 👈 Add this */
   }
+  
   
   /* ─── Copy Button ─── */
   .copy-btn {
