@@ -1,10 +1,7 @@
-const selectEl        = document.getElementById('search-options');
-const promptBox       = document.getElementById('prompt-box');
-const origBox         = document.getElementById('original-llm-box');
-const optBox          = document.getElementById('optimized-llm-box');
-const goBtn           = document.getElementById('search-button');
+const selectEl    = document.getElementById('search-options');
+const goBtn       = document.getElementById('search-button');
 
-// ----  data ----------------------------------------------------------
+// Data for each option
 const prompts = {
   path_traversal:
 `from flask import Flask, request, send_file, safe_join
@@ -167,14 +164,19 @@ def hello():
         return escape("Please enter a username")
     return escape("Hello, %s!" % escape(username))`
 };
-// --------------------------------------------------------------------
 
-function fillBoxes(key) {
-  promptBox.textContent = prompts[key] || '(Selected prompt will appear here)';
-  origBox.textContent   = originalOut[key] || '(Output from Original LLM)';
-  optBox.textContent    = tunedOut[key]    || '(Output from Fine-tuned LLM)';
+// Helper function to update code blocks
+function putCode(id, txt) {
+  const codeElem = document.querySelector(`#${id} code`);
+  codeElem.textContent = txt || '';
+  hljs.highlightElement(codeElem);
 }
 
-// click & change both work
+function fillBoxes(key) {
+  putCode('prompt-box', prompts[key]);
+  putCode('original-llm-box', originalOut[key]);
+  putCode('optimized-llm-box', tunedOut[key]);
+}
+
 goBtn.addEventListener('click', () => fillBoxes(selectEl.value));
 selectEl.addEventListener('change', () => fillBoxes(selectEl.value));

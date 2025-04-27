@@ -5,7 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Demonstration - SafeCode: Securing LLM Generated Code</title>
   <link rel="stylesheet" href="style.css">
+
+  <!-- Highlight.js CSS (GitHub Dark Theme) -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+  <!-- Highlight.js Script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 </head>
+
 <body class="demo-body">
   <header>
     <nav>
@@ -24,11 +31,11 @@
     <div class="search-container">
       <div class="select-wrapper">
         <select id="search-options">
-            <option value="">--Please choose--</option>
-            <option value="path_traversal">CWE-022: Path Traversal</option> <!-- UPDATED -->
-            <option value="shell_injection">CWE-078: Shell Injection</option>
-            <option value="xss">CWE-079: Cross-Site Scripting (XSS)</option>
-          </select>
+          <option value="">--Please choose--</option>
+          <option value="path_traversal">CWE-022: Path Traversal</option>
+          <option value="shell_injection">CWE-078: Shell Injection</option>
+          <option value="xss">CWE-079: Cross-Site Scripting (XSS)</option>
+        </select>
         <button id="search-button">Go</button>
       </div>
     </div>
@@ -37,26 +44,31 @@
       <div class="box prompt-box">
         <h2>Prompt</h2>
         <div id="prompt-box" class="code-block">
-          (Selected prompt will appear here)
+          <pre><code class="language-python"></code></pre>
         </div>
       </div>
 
       <div class="box model-box">
         <h2>Original LLM</h2>
         <div id="original-llm-box" class="code-block">
-          (Output from Original LLM)
+          <pre><code class="language-python"></code></pre>
         </div>
       </div>
 
       <div class="box model-box">
         <h2>Fine-tuned &amp; Optimized LLM</h2>
         <div id="optimized-llm-box" class="code-block">
-          (Output from Fine-tuned LLM)
+          <pre><code class="language-python"></code></pre>
         </div>
       </div>
     </div>
   </main>
 
   <script src="script.js"></script>
+
+  <!-- Highlight all code after page loads -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => hljs.highlightAll());
+  </script>
 </body>
 </html>

@@ -177,18 +177,12 @@ nav ul li a:hover {
     display: none;
 }
 
-/* Code Block */
 .code-block {
     background-color: #0d1117;
-    color: #e2e8f0;
-    font-family: "Source Code Pro", "Courier New", monospace;
     border: 1px solid #30363d;
     border-radius: 8px;
     padding: 12px 14px;
-    white-space: pre-wrap;
     overflow-x: auto;
-    line-height: 1.35;
-    margin-top: 10px;
 }
 
 #prompt-box, #original-llm-box, #optimized-llm-box {
