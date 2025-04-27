@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demonstration - SafeCode: Securing LLM Generated Code</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="demo-body">
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="demonstration.html">Demonstration</a></li>
+        <li>
+          <a href="https://docs.google.com/presentation/d/1shh16C9MxiHml4Qzxgjh0ClgqaoH--ak/edit?usp=sharing&ouid=114781339530322821717&rtpof=true&sd=true"
+             target="_blank" rel="noopener">Poster</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="search-container">
+      <div class="select-wrapper">
+        <select id="search-options">
+            <option value="">--Please choose--</option>
+            <option value="path_traversal">CWE-022: Path Traversal</option> <!-- UPDATED -->
+            <option value="shell_injection">CWE-078: Shell Injection</option>
+            <option value="xss">CWE-079: Cross-Site Scripting (XSS)</option>
+          </select>
+        <button id="search-button">Go</button>
+      </div>
+    </div>
+
+    <div class="flow-container">
+      <div class="box prompt-box">
+        <h2>Prompt</h2>
+        <div id="prompt-box" class="code-block">
+          (Selected prompt will appear here)
+        </div>
+      </div>
+
+      <div class="box model-box">
+        <h2>Original LLM</h2>
+        <div id="original-llm-box" class="code-block">
+          (Output from Original LLM)
+        </div>
+      </div>
+
+      <div class="box model-box">
+        <h2>Fine-tuned &amp; Optimized LLM</h2>
+        <div id="optimized-llm-box" class="code-block">
+          (Output from Fine-tuned LLM)
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
