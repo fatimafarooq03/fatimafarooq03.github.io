@@ -24,18 +24,20 @@
     </nav>
   </header>
 
-  <main>
+  <main class="demo-wrapper">
     <div class="search-container">
       <div class="select-wrapper">
-        <select id="search-options">
-          <option value="">--Please choose--</option>
-          <option value="path_traversal">CWE-022: Path Traversal</option>
-          <option value="shell_injection">CWE-078: Shell Injection</option>
-          <option value="xss">CWE-079: Cross-Site Scripting (XSS)</option>
-        </select>
-        <button id="search-button">Go</button>
+        <input id="search-box" list="cwe-options" placeholder="Select a vulnerability...">
+        <datalist id="cwe-options">
+          <option value="CWE-022: Path Traversal">
+          <option value="CWE-078: Shell Injection">
+          <option value="CWE-079: Cross-Site Scripting (XSS)">
+        </datalist>
+        <button id="search-button" class="btn-primary">Go</button>
       </div>
     </div>
+
+    <div id="status"></div>
 
     <div class="flow-container">
       <div class="box prompt-box">
