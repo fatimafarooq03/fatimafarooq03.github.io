@@ -5,21 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Demonstration - SafeCode: Securing LLM Generated Code</title>
   <link rel="stylesheet" href="style.css">
-
-  <!-- Highlight.js CSS (GitHub Dark Theme from CDN) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark.min.css" id="highlight-style">
 </head>
 
-<body class="demo-body">
+<body class="demo-body" data-theme="dark">
   <header>
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="demonstration.html">Demonstration</a></li>
-        <li>
-          <a href="https://docs.google.com/presentation/d/1shh16C9MxiHml4Qzxgjh0ClgqaoH--ak/edit?usp=sharing&ouid=114781339530322821717&rtpof=true&sd=true"
-             target="_blank" rel="noopener">Poster</a>
-        </li>
+        <li><a href="https://docs.google.com/presentation/d/1shh16C9MxiHml4Qzxgjh0ClgqaoH--ak/edit?usp=sharing&ouid=114781339530322821717&rtpof=true&sd=true" target="_blank" rel="noopener">Poster</a></li>
+        <li><button id="theme-toggle" class="theme-toggle">🌙</button></li>
       </ul>
     </nav>
   </header>
@@ -37,25 +34,32 @@
       </div>
     </div>
 
-    <!-- (status div removed) -->
-
     <div class="flow-container">
       <div class="box prompt-box">
-        <h2>Prompt</h2>
+        <div class="box-header">
+          <h2>Prompt</h2>
+          <button class="copy-btn" data-target="prompt-box">📋</button>
+        </div>
         <div id="prompt-box" class="code-block">
           <pre><code class="language-python"></code></pre>
         </div>
       </div>
 
       <div class="box model-box">
-        <h2>Original LLM</h2>
+        <div class="box-header">
+          <h2>Original LLM</h2>
+          <button class="copy-btn" data-target="original-llm-box">📋</button>
+        </div>
         <div id="original-llm-box" class="code-block">
           <pre><code class="language-python"></code></pre>
         </div>
       </div>
 
       <div class="box model-box">
-        <h2>Fine-tuned &amp; Optimized LLM</h2>
+        <div class="box-header">
+          <h2>Fine-tuned & Optimized LLM</h2>
+          <button class="copy-btn" data-target="optimized-llm-box">📋</button>
+        </div>
         <div id="optimized-llm-box" class="code-block">
           <pre><code class="language-python"></code></pre>
         </div>

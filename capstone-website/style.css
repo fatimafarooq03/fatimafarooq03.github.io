@@ -1,9 +1,44 @@
-/* ─── Global Reset ─── */
-body, html {
+/* ─── Theme Variables ─── */
+:root {
+    --bg-color: #0f172a;
+    --text-color: #f8fafc;
+    --nav-link-color: white;
+    --box-bg: #1e293b;
+    --box-border: #334155;
+    --code-bg: #0d1117;
+  }
+  
+  [data-theme="light"] {
+    --bg-color: #f8fafc;
+    --text-color: #0f172a;
+    --nav-link-color: #0f172a; /* dark blue/navy color for light mode */
+    --box-bg: #ffffff;
+    --box-border: #cbd5e1;
+    --code-bg: #e2e8f0;
+  }
+  
+  /* ─── Smooth Scroll ─── */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* ─── General Reset ─── */
+  body, html {
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     height: 100%;
+  }
+  
+  /* ─── Home Page Only ─── */
+  .home-body {
+    background: none;
+  }
+  
+  /* ─── Demonstration Page ─── */
+  .demo-body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
   }
   
   /* ─── Navbar ─── */
@@ -28,8 +63,8 @@ body, html {
     margin: 0 20px;
   }
   
-  nav ul li a {
-    color: white;
+  nav ul li a, .theme-toggle {
+    color: var(--nav-link-color);
     text-decoration: none;
     font-weight: 600;
     font-size: 18px;
@@ -38,20 +73,18 @@ body, html {
     transition: background-color 0.3s ease, color 0.3s ease;
   }
   
-  nav ul li a:hover {
+  nav ul li a:hover, .theme-toggle:hover {
     background-color: #1e40af;
     color: white;
   }
   
-  /* ─── Home Page Styles ─── */
-  .home-body {
+  .theme-toggle {
     background: none;
+    border: none;
+    cursor: pointer;
   }
   
-  .home-body header {
-    background-color: transparent;
-  }
-  
+  /* ─── Home Content ─── */
   .video-background {
     position: fixed;
     top: 0;
@@ -85,17 +118,7 @@ body, html {
     font-size: 24px;
   }
   
-  /* ─── Demonstration Page Styles ─── */
-  .demo-body {
-    background-color: #0f172a;
-    min-height: 100vh;
-  }
-  
-  .demo-body header {
-    background-color: rgba(15, 23, 42, 0.9);
-  }
-  
-  /* Wrapper */
+  /* ─── Demonstration Page Content ─── */
   .demo-wrapper {
     max-width: 1200px;
     margin: auto;
@@ -103,7 +126,6 @@ body, html {
     padding-top: 100px;
   }
   
-  /* ─── Selection Section ─── */
   .search-container {
     display: flex;
     justify-content: center;
@@ -131,7 +153,6 @@ body, html {
     padding: 8px;
   }
   
-  /* Go Button */
   .btn-primary {
     background-color: #38bdf8;
     color: #0f172a;
@@ -147,7 +168,6 @@ body, html {
     background-color: #0ea5e9;
   }
   
-  /* ─── Layout for Code Boxes ─── */
   .flow-container {
     display: flex;
     flex-direction: column;
@@ -155,38 +175,54 @@ body, html {
     align-items: center;
   }
   
-  /* Box Styles (Prompt, Original LLM, Fine-tuned LLM) */
+  /* ─── Box ─── */
   .box {
     width: 100%;
     max-width: 1000px;
-    background-color: #1e293b;
+    background-color: var(--box-bg);
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    border: 1px solid var(--box-border);
     transition: all 0.3s ease;
   }
   
-  /* Hover Glow Effect */
   .box:hover {
     box-shadow: 0 8px 24px rgba(56, 189, 248, 0.3);
     transform: translateY(-4px);
   }
   
-  /* Headers inside boxes */
-  .box h2 {
-    margin-top: 0;
+  .box-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .box-header h2 {
+    margin: 0;
     font-size: 22px;
-    font-weight: 600;
-    color: #7dd3fc;
-    border-bottom: 1px solid #334155;
-    padding-bottom: 8px;
-    margin-bottom: 16px;
-    text-align: left;
+  }
+  
+  /* ─── Copy Button ─── */
+  .copy-btn {
+    background: #38bdf8;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+    color: #0f172a;
+    font-weight: bold;
+  }
+  
+  .copy-btn:hover {
+    background: #0ea5e9;
   }
   
   /* ─── Code Block ─── */
   .code-block {
-    background-color: #0d1117;
+    background-color: var(--code-bg);
     border: 1px solid #30363d;
     border-radius: 8px;
     padding: 0;
@@ -235,7 +271,7 @@ body, html {
       padding: 15px;
     }
   
-    .box h2 {
+    .box-header h2 {
       font-size: 20px;
     }
   }
