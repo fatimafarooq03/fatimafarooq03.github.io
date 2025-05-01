@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Instruction-Tuning - SafeCode</title>
+  <link rel="stylesheet" href="style.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark.min.css"
+    id="highlight-style"
+  />
+</head>
+<body class="demo-body" data-theme="dark">
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="demonstration.html">Demonstration</a></li>
+        <li><a href="instruction.html" aria-current="page">Instruction-Tuning</a></li>
+        <li><a href="cascading.html">Cascading</a></li>
+        <li><a href="https://docs.google.com/presentation/d/1shh16C9MxiHml4Qzxgjh0ClgqaoH--ak/edit?usp=sharing&ouid=114781339530322821717&rtpof=true&sd=true" target="_blank" rel="noopener">Poster</a></li>
+        <li><button id="theme-toggle" class="theme-toggle">🌙</button></li>
+      </ul>
+    </nav>
+</header>
+<main class="demo-wrapper">
+  <div class="search-container">
+    <div class="select-wrapper">
+      <input id="search-box" list="cwe-options" placeholder="Select a vulnerability…" />
+      <datalist id="cwe-options">
+        <option value="CWE-326: Inadequate Encryption Strength">
+      </datalist>
+      <button id="search-button" class="btn-primary">Go</button>
+    </div>
+  </div>
+  <div class="bottom-boxes">
+    <!-- Prompt -->
+    <div class="box model-box">
+      <div class="box-header">
+        <h2>Prompt</h2>
+        <button class="copy-btn" data-target="prompt-box">📋</button>
+      </div>
+      <div id="prompt-box" class="code-block">
+        <pre><code class="language-python"></code></pre>
+      </div>
+    </div>
+
+    <!-- Secure Output -->
+    <div class="box model-box">
+      <div class="box-header">
+        <h2>Secure Output</h2>
+        <button class="copy-btn" data-target="secure-box">📋</button>
+      </div>
+      <div id="secure-box" class="code-block">
+        <pre><code class="language-python"></code></pre>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script src="instruction.js"></script>
+</body>
+</html>
