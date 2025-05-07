@@ -1,0 +1,117 @@
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Comms Lab Projects</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background-color: #fff0f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 3rem 1rem;
+    }
+
+    .back-link {
+      position: absolute;
+      top: 1.5rem;
+      left: 2rem;
+      font-size: 1rem;
+      color: #b84c6b;
+      text-decoration: none;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+    }
+
+    .back-link::before {
+      content: "←";
+      margin-right: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    h1 {
+      color: #c05a7c;
+      margin-bottom: 2rem;
+    }
+
+    .project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 900px;
+  width: 100%;
+}
+
+
+    .project-card {
+      background: #ffeaf1;
+      border: 2px solid #f9c6d1;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      text-align: center;
+      transition: transform 0.25s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .project-card p {
+      margin: 0;
+      padding: 1rem;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #6a3350;
+      background-color: #ffeaf1;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <a class="back-link" href="index.html#projects">Back to Projects</a>
+  <h1>Comms Lab Projects</h1>
+  <div class="project-grid">
+    <a href="https://fatimafarooq03.github.io/30MFF/" target="_blank">
+      <div class="project-card">
+        <img src="30MFF.png" alt="30 Minute Film Festival">
+        <p>30 Minute Film Festival</p>
+      </div>
+    </a>
+    <a href="https://fatimafarooq03.github.io/comic/" target="_blank">
+      <div class="project-card">
+        <img src="comic.png" alt="Interactive Comic">
+        <p>Interactive Comic</p>
+      </div>
+    </a>
+    <a href="https://fatimafarooq03.github.io/AudioProject/" target="_blank">
+      <div class="project-card">
+        <img src="audio.png" alt="Audio Story Telling">
+        <p>Audio Story Telling</p>
+      </div>
+    </a>
+    <a href="https://mah9994.github.io/Video/" target="_blank">
+      <div class="project-card">
+        <img src="film.png" alt="Film Story Telling">
+        <p>Film Story Telling</p>
+      </div>
+    </a>
+  </div>
+</body>
+</html>

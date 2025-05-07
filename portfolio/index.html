@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fatima’s Portfolio</title>
+
+  <!-- Fonts & Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- AOS animation styles -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+
+<script>
+  /* ── skip splash & jump straight to Projects if URL ends with #projects ── */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (location.hash === "#projects") {
+      // Hide splash, show main page
+      document.querySelector(".splash-container").style.display = "none";
+      document.getElementById("main-page").style.display = "block";
+  
+      // Scroll to Projects and nudge 20 px lower (same offset you liked)
+      const projSec = document.getElementById("projects");
+      if (projSec) {
+        projSec.scrollIntoView({ behavior: "auto", block: "start" });
+        window.scrollBy({ top: 20, behavior: "auto" });
+      }
+    }
+  
+    /* … keep the rest of your existing JS here … */
+  });
+  </script>
+  
+
+<body>
+
+  <!-- Splash screen -->
+  <div class="splash-container">
+    <img src="type.png" alt="Typing Background" class="splash-img"/>
+    <div class="typing-box">
+      <p id="typed-text"></p>
+      <span id="arrow-enter" class="arrow-enter" style="display: none;">→</span>
+    </div>
+  </div>
+
+  <!-- Main Page -->
+  <div id="main-page" style="display: none;">
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <video class="hero-video" autoplay muted playsinline>
+        <source src="front.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <nav class="hero-buttons">
+        <a href="#about" class="pink-btn" id="aboutBtn">About Me</a>
+        <a href="#experience" class="pink-btn">Work Experience</a>
+        <a href="#projects" class="pink-btn">Projects</a>
+        <a href="#contact" class="pink-btn">Contact</a>
+      </nav>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="about-section">
+      <div class="about-wrapper">
+        <h2 class="about-title">About Me</h2>
+        <div class="about-content">
+          <img src="work.png" alt="Fatima Working" class="about-image" id="aboutImage" />
+          <div class="about-bubble" id="aboutBubble">
+            Hi, I’m Fatima! I’m a computer engineer passionate about using data and technology to drive meaningful impact. 
+            With a strong foundation in engineering and a deep interest in user-centered design, I’m excited by roles that 
+            sit at the intersection of data, product, and purpose. Whether it’s uncovering insights to guide strategic 
+            decisions or building thoughtful products, I’m driven by the potential of tech to create real-world change.
+          </div>
+        </div>
+
+        <!-- Skills Section -->
+        <div class="skills-frame-wrapper">
+          <img src="skills.png" alt="Skills Frame" class="skills-frame" />
+          <div class="skills-overlay">
+            <ul class="skills-list">
+              <li>C++</li><li>C</li><li>Python</li><li>C#</li><li>VHDL</li><li>Verilog</li>
+              <li>CircuitVerse</li><li>LTspice</li><li>Shell Scripting</li><li>Linux</li><li>Git/GitHub</li>
+              <li>Data Analysis</li><li>Pandas</li><li>NumPy</li><li>Predictive Modeling</li>
+              <li>HTML</li><li>CSS</li><li>JavaScript</li><li>MATLAB</li><li>RegEx</li>
+              <li>Canva</li><li>Microsoft Office</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Resume Download -->
+        <div class="resume-download">
+          <a href="Fatima_Resume_Tech.pdf" download>
+            <img src="download.png" alt="Download Resume" class="resume-icon" />
+            <span>Download Resume</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="timeline-section">
+        <h2 class="section-title">Work Experience</h2>
+        <div class="timeline">
+      
+          <!-- Item 1 -->
+          <div class="timeline-item left" data-aos="fade-right">
+            <div class="timeline-dot"></div>
+            <div class="timeline-line"></div>
+            <div class="timeline-box">
+              <h3>Research Assistant · NYU Center for Cybersecurity</h3>
+              <p class="timeline-meta">New York · Jun 2024 – Present</p>
+              <ul>
+                <li>Surveyed benchmarks & LLMs for RTL generation</li>
+                <li>Built 10 prompt-engineering frameworks for Verilog</li>
+                <li>Curated 168-problem Verilog dataset</li>
+                <li>Testing frameworks → paper for LAD’25</li>
+              </ul>
+            </div>
+          </div>
+      
+          <!-- Item 2 -->
+          <div class="timeline-item right" data-aos="fade-left">
+            <div class="timeline-dot"></div>
+            <div class="timeline-line"></div>
+            <div class="timeline-box">
+              <h3>Teaching Assistant · NYUAD Engineering Dept</h3>
+              <p class="timeline-meta">Abu Dhabi · Aug 2022 – Dec 2024</p>
+              <ul>
+                <li>Office hours for 100+ students</li>
+                <li>Guided weekly labs</li>
+                <li>Graded programming quizzes</li>
+              </ul>
+            </div>
+          </div>
+      
+          <!-- Item 3 -->
+          <div class="timeline-item left" data-aos="fade-right">
+            <div class="timeline-dot"></div>
+            <div class="timeline-line"></div>
+            <div class="timeline-box">
+              <h3>Teaching Assistant · NYU Tandon CSE</h3>
+              <p class="timeline-meta">New York · Jan 2024 – May 2024</p>
+              <ul>
+                <li>Led CPU architecture recitations</li>
+                <li>Debugged 50+ simulation projects</li>
+              </ul>
+            </div>
+          </div>
+      
+          <!-- Item 4 -->
+          <div class="timeline-item right" data-aos="fade-left">
+            <div class="timeline-dot"></div>
+            <div class="timeline-line"></div>
+            <div class="timeline-box">
+              <h3>Research Assistant · Design for Excellence Lab</h3>
+              <p class="timeline-meta">Abu Dhabi · Jun 2023 – Aug 2023</p>
+              <ul>
+                <li>Implemented UNSAIL for security</li>
+                <li>Wrote C++ netlist manipulation tools</li>
+              </ul>
+            </div>
+          </div>
+      
+        </div>
+      </section>
+
+      <!-- ─── Projects / Courses ─────────────────────────────── -->
+<section id="projects" class="course-section">
+  <h2 class="section-title">Projects</h2>
+
+  <div class="course-grid">
+
+    <!-- repeat this card block for each course -->
+    <a href="https://fatimafarooq03.github.io/capstone-website/" target="_blank" class="course-link">
+      <div class="course-card">
+        <img src="Capstone.png" alt="Capstone">
+        <p>Capstone</p>
+      </div>
+    </a>
+    
+
+    <a href="research.html">
+      <div class="course-card">
+        <img src="Research.png" alt="Research">
+        <p>Research</p>
+      </div>
+    </a>
+    
+    <a href="https://github.com/fatimafarooq03/Machine-Learning-Projects-ENGR-UH-3332-" target="_blank" class="course-link">
+      <div class="course-card">
+        <img src="AML.png" alt="AML">
+        <p>Machine Learning</p>
+      </div>
+    </a>
+    
+
+    <a href="https://github.com/fatimafarooq03/Diabetes-Risk-Awareness-Model" target="_blank" class="course-link">
+      <div class="course-card">
+        <img src="Data Bootcamp.png" alt="Data Bootcamp">
+        <p>Data Bootcamp</p>
+      </div>
+    </a>
+    
+    <a href="commslab.html" class="course-link">
+      <div class="course-card">
+        <img src="Comms lab.png" alt="Comms Lab">
+        <p>Comms Lab</p>
+      </div>
+    </a>
+    
+    <a href="adl.html" class="course-link">
+      <div class="course-card">
+        <img src="Advanced Digital Logic.png" alt="Advanced Digital Logic">
+        <p>Advanced Digital Logic</p>
+      </div>
+    </a>
+    
+
+    <a href="https://github.com/fatimafarooq03/EmbeddedChallenge" class="course-link" target="_blank">
+      <div class="course-card">
+        <img src="Embedded Systems.png" alt="Embedded Systems">
+        <p>Embedded Systems</p>
+      </div>
+    </a>
+    
+
+    <a href="competitions.html" class="course-link">
+      <div class="course-card">
+        <img src="Competitions.png" alt="Competitions">
+        <p>Competitions</p>
+      </div>
+    </a>
+   
+
+  </div>
+  <section id="contact" class="contact-section">
+    <h2 class="contact-heading">Let’s Connect!</h2>
+    <p class="contact-subheading">
+      If you’d like to collaborate, chat about projects, or just say hi — I’d love to hear from you 💌
+    </p>
+  
+    <form action="https://formspree.io/f/xanojnjg" method="POST" class="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+  
+
+      
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true
+    });
+
+    // Scroll observer for timeline dots
+    document.addEventListener("DOMContentLoaded", () => {
+      const items = document.querySelectorAll(".timeline-item");
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in‑view");
+          }
+        });
+      }, { threshold: 0.3 });
+      items.forEach(item => io.observe(item));
+    });
+  </script>
+</body>
+</html>
