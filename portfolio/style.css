@@ -107,104 +107,94 @@ body {
     height: 1px;
   }
   
-  /* === About Section === */
-  .about-section {
-    background-color: #fff0f4;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 5rem 2rem;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .about-wrapper {
-    width: 100%;
-    max-width: 1000px;
-    position: relative;
-    padding: 1rem 2rem;
-  }
-  
-  .about-title {
-    font-size: 2rem;
-    color: #c05a7c;
-    margin-bottom: 2rem;
-    font-weight: bold;
-    text-align: left;
-  }
-  
-  .about-content {
-    display: flex;
-    position: relative;
-    width: 100%;
-    justify-content: space-between;
-    align-items: stretch;
-    min-height: 60vh;
-  }
-  
-  /* Image on bottom-left */
-  .about-image {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 280px;
-    max-width: 45vw;
-    height: auto;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 1s ease, transform 1s ease;
-    z-index: 1;
-  }
-  
-  .about-image.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-  /* Speech bubble on top-right */
-  .about-bubble {
-    position: absolute;
-    top: 0;
-    right: 0;
-    max-width: 650px;
-    background-color: #fffdfb;
-    border: 8px solid #f9c6d1;
-    border-radius: 40px;
-    padding: 2.5rem;
-    font-size: 1.15rem;
-    line-height: 1.8;
-    color: #333;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 1s ease, transform 1s ease;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    text-align: center;
-    z-index: 2;
-  }
-  
-  .about-bubble::after {
-    content: '';
-    position: absolute;
-    bottom: -20px;
-    left: 40px;
-    width: 40px;
-    height: 40px;
-    background-color: #fffdfb;
-    border-bottom: 8px solid #f9c6d1;
-    border-right: 8px solid #f9c6d1;
-    border-radius: 0 0 0 40px;
-    transform: rotate(45deg);
-  }
-  
-  .about-bubble.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
+/* === About Section (with entrance animations) === */
+.about-section {
+  background-color: #fff0f4;
+  padding: 5rem 2rem;
+  position: relative;
+  overflow: visible;     /* allow image to extend below */
+  min-height: 100vh;
+}
+
+.about-wrapper {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.about-title {
+  font-size: 2rem;
+  color: #c05a7c;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+/* container for bubble + illustration */
+.about-content {
+  position: relative;
+  width: 100%;
+  min-height: 450px;     /* space for image + bubble */   /* gap before skills section */
+  overflow: visible;
+  margin-bottom: 14rem;
+}
+
+/* === Speech bubble (hidden by default) === */
+.about-bubble {
+  position: absolute;
+  top: 0;
+  right: 0;
+  max-width: 650px;
+  padding: 2.5rem;
+  background-color: #fffdfb;
+  border: 8px solid #f9c6d1;
+  border-radius: 40px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  text-align: center;
+  color: #333;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease, transform 1s ease;
+  z-index: 2;
+}
+.about-bubble.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.about-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 40px;
+  width: 40px; height: 40px;
+  background-color: #fffdfb;
+  border-bottom: 8px solid #f9c6d1;
+  border-right: 8px solid #f9c6d1;
+  border-radius: 0 0 0 40px;
+  transform: rotate(45deg);
+}
+
+/* === Girl illustration (hidden by default) === */
+/* pin the girl exactly under the bubble’s bottom edge */
+.about-image {
+  position: absolute;     /* ensure absolute positioning */
+  bottom: -225px !important;  /* ↓ drop it until table just clears the bubble tail */
+  left: 0 !important;         /* align at left edge of bubble */
+  width: 340px;           /* keep your preferred size */
+  max-width: 45vw;
+  object-fit: contain;
+  z-index: 1;
+}
+.about-image.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
   /* === Skills Box === */
   .skills-box {
-    margin-top: 4rem;
+    margin-top: 16rem;
     background-color: #ffeaf1;
     border: 2px solid #f9c6d1;
     border-radius: 20px;
@@ -284,6 +274,7 @@ body {
   }
   
   .skills-frame-wrapper {
+    margin-top: 12 rem; 
     position: relative;
     margin: 3rem auto;
     max-width: 800px;
@@ -613,4 +604,41 @@ body {
 
 .contact-form button:hover {
   background-color: #fbbacb;
+}
+
+.skills-list li {
+  position: relative;
+  background-color: #fbd5df;
+  color: #5c2d3b;
+  padding: 0.6rem 1.2rem;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  cursor: default;
+}
+
+/* Tooltip styling */
+.skills-list li::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff0f4;
+  color: #b84c6b;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 10;
+}
+
+.skills-list li:hover::after {
+  opacity: 1;
 }
