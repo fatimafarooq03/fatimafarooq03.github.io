@@ -1,45 +1,59 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Typing animation
-  const text = "fatima.farooq@portfolio.com";
+  /* ───────────────────────── 1. Splash / typing ───────────────────────── */
+  const text      = "fatima.farooq@portfolio.com";
   const typedText = document.getElementById("typed-text");
-  const arrow = document.getElementById("arrow-enter");
+  const arrow     = document.getElementById("arrow-enter");
   let index = 0;
 
-  function type() {
+  (function type() {
     if (index < text.length) {
-      typedText.textContent += text.charAt(index);
-      index++;
+      typedText.textContent += text.charAt(index++);
       setTimeout(type, 80);
     } else {
       arrow.style.display = "inline";
     }
-  }
-
-  type();
+  })();
 
   arrow.addEventListener("click", () => {
     document.querySelector(".splash-container").style.display = "none";
     document.getElementById("main-page").style.display = "block";
   });
 
-  // Animate speech + image on About section visibility
-  const aboutBubble = document.getElementById("aboutBubble");
-  const aboutImage = document.getElementById("aboutImage");
+  /* ───────────────────────── 2. About-section reveal ───────────────────── */
+  const aboutBubble  = document.getElementById("aboutBubble");
+  const aboutImage   = document.getElementById("aboutImage");
   const aboutSection = document.getElementById("about");
 
   if (aboutSection && aboutBubble && aboutImage) {
-    const observer = new IntersectionObserver(
+    const aboutObserver = new IntersectionObserver(
       entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            aboutBubble.classList.add("visible");
-            aboutImage.classList.add("visible");
-          }
-        });
+        if (entries[0].isIntersecting) {
+          aboutBubble.classList.add("visible");
+          aboutImage.classList.add("visible");
+          aboutObserver.unobserve(aboutSection);        // run once
+        }
       },
       { threshold: 0.5 }
     );
+    aboutObserver.observe(aboutSection);
+  }
 
-    observer.observe(aboutSection);
+  /* ───────────────────────── 3. Timeline scroll-reveal ─────────────────── */
+  const timelineItems = document.querySelectorAll(".timeline-item");
+
+  if (timelineItems.length) {
+    const timelineObserver = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+            timelineObserver.unobserve(entry.target);   // animate once
+          }
+        });
+      },
+      { threshold: 0.2 }  // adjust for earlier/later trigger
+    );
+
+    timelineItems.forEach(item => timelineObserver.observe(item));
   }
 });
