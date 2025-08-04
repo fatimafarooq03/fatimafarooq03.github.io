@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   /* ───────────────────────── 1. Splash / typing ───────────────────────── */
-  const text      = "fatima.farooq@portfolio.com";
+  const text = "fatima.farooq@portfolio.com";
   const typedText = document.getElementById("typed-text");
-  const arrow     = document.getElementById("arrow-enter");
+  const arrow = document.getElementById("arrow-enter");
   let index = 0;
 
   (function type() {
@@ -20,17 +20,17 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* ───────────────────────── 2. About-section reveal ───────────────────── */
-  const aboutBubble  = document.getElementById("aboutBubble");
-  const aboutImage   = document.getElementById("aboutImage");
+  const aboutBubble = document.getElementById("aboutBubble");
+  const aboutImage = document.getElementById("aboutImage");
   const aboutSection = document.getElementById("about");
 
   if (aboutSection && aboutBubble && aboutImage) {
     const aboutObserver = new IntersectionObserver(
-      entries => {
+      (entries) => {
         if (entries[0].isIntersecting) {
           aboutBubble.classList.add("visible");
           aboutImage.classList.add("visible");
-          aboutObserver.unobserve(aboutSection);        // run once
+          aboutObserver.unobserve(aboutSection); // run once
         }
       },
       { threshold: 0.5 }
@@ -43,17 +43,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (timelineItems.length) {
     const timelineObserver = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
+      (entries) => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("in-view");
-            timelineObserver.unobserve(entry.target);   // animate once
+            timelineObserver.unobserve(entry.target); // animate once
           }
         });
       },
-      { threshold: 0.2 }  // adjust for earlier/later trigger
+      { threshold: 0.2 } // adjust for earlier/later trigger
     );
 
-    timelineItems.forEach(item => timelineObserver.observe(item));
+    timelineItems.forEach((item) => timelineObserver.observe(item));
   }
 });
