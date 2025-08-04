@@ -1,2 +1,2 @@
-## [Personal Portfolio] (https://fatimafarooq03.github.io/portfolio/) 
+## (Personal Portfolio) [https://fatimafarooq03.github.io/portfolio/]
  
